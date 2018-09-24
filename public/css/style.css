@@ -1,0 +1,189 @@
+/* :: 8.0 Popular Products Area CSS */
+.event-page .single-product-wrapper {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 50px;
+  overflow: hidden;
+  border:solid silver .3px;
+  padding: 0px;
+  background-color: #ffffff;
+  margin-left: 10px;
+  width: 32%; }
+  @media only screen and (max-width: 767px) {
+    .event-page  .single-product-wrapper{
+      width : 100%; } }
+  
+  .event-page  .single-product-wrapper .product-img {
+    position: relative;
+    z-index: 1;
+    overflow: hidden; }
+    .event-page  .single-product-wrapper .product-img img {
+      width: 100%;
+      height: 350px;
+      -webkit-transition-duration: 500ms;
+      transition-duration: 500ms; }
+    .event-page  .single-product-wrapper .product-img .hover-img {
+      -webkit-transition-duration: 500ms;
+      transition-duration: 500ms;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      opacity: 0;
+      visibility: hidden; }
+    .event-page  .single-product-wrapper .product-img .product-badge {
+      height: 25px;
+      background-color: #000000;
+      color: #ffffff;
+      font-family: "Ubuntu", sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 0 10px;
+      display: inline-block;
+      line-height: 25px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10; }
+      .event-page  .single-product-wrapper .product-img .product-badge.offer-badge {
+        background-color: #dc0345; }
+      .event-page  .single-product-wrapper .product-img .product-badge.new-badge {
+        background-color: #0315ff; }
+    .event-page  .single-product-wrapper .product-img .product-group a {
+      position: absolute;
+      height: 25px;
+      width: 45px;
+      font-size: 14px;
+      color: #ccc;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      line-height: 25px;
+      background-color: #ffffff;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      opacity: 0;
+      visibility: hidden; }
+      .event-page  .single-product-wrapper .product-img .product-group a.active {
+        opacity: 1;
+        visibility: visible; }
+  .event-page  .single-product-wrapper .product-description {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    padding-top: 25px; }
+    .event-page  .single-product-wrapper .product-description span {
+      font-size: 10px;
+      text-transform: uppercase;
+      color: #787878;
+      margin-bottom: 15px;
+      letter-spacing: 0.75px;
+      font-weight: 600; }
+    .event-page  .single-product-wrapper .product-description h6 {
+      color: #222222;
+      margin-bottom: 5px; }
+    .event-page  .single-product-wrapper .product-description p {
+      margin-bottom: 0;
+      font-size: 14px;
+      font-family: "Ubuntu", sans-serif;
+      font-weight: 700;
+      color: #000000; }
+      .event-page  .single-product-wrapper .product-description p span {
+        font-size: 14px;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 700;
+        color: #aaaaaa;
+        margin-right: 10px;
+        text-decoration: line-through; }
+    .event-page  .single-product-wrapper .product-description .hover-content {
+      position: absolute;
+      width: calc(100% - 40px);
+      top: -70px;
+      left: 20px;
+      right: 20px;
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transition-duration: 500ms;
+      transition-duration: 500ms; }
+      .event-page  .single-product-wrapper .product-description .hover-content .essence-btn {
+        width: 100%; }
+  .event-page  .single-product-wrapper .favme {
+    cursor: pointer;
+    color: #ccc; }
+    .event-page  .single-product-wrapper .favme.active {
+      color: #dc0345 !important; }
+    .event-page .single-product-wrapper .favme.is_animating {
+      animation: favme-anime .5s; }
+  .event-page .single-product-wrapper:hover .product-img .hover-img {
+    opacity: 1;
+    visibility: visible; }
+  .event-page .single-product-wrapper:hover .product-img .product-group a {
+    opacity: 1;
+    visibility: visible; }
+  .event-page .single-product-wrapper:hover .hover-content {
+    opacity: 1;
+    visibility: visible; }
+
+/*navbar 2 categories*/
+
+/* adds some margin below the link sets  */
+.navbar .dropdown-menu div[class*="col"] {
+   margin-bottom:1rem;
+}
+
+.navbar .dropdown-menu {
+  border:none;
+  background-color:#0060c8!important;
+}
+
+/* breakpoint and up - mega dropdown styles */
+@media screen and (min-width: 992px) {
+  
+  /* remove the padding from the navbar so the dropdown hover state is not broken */
+.navbar {
+  padding-top:0px;
+  padding-bottom:0px;
+}
+
+/* remove the padding from the nav-item and add some margin to give some breathing room on hovers */
+.navbar .nav-item {
+  padding:.5rem .5rem;
+  margin:0 .25rem;
+}
+
+/* makes the dropdown full width  */
+.navbar .dropdown {position:static;}
+
+.navbar .dropdown-menu {
+  width:100%;
+  left:0;
+  right:0;
+/*  height of nav-item  */
+  top:45px;
+  
+  display:block;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s linear;
+  
+}
+  
+ 
+
+  
+  /* shows the dropdown menu on hover */
+.navbar .dropdown:hover .dropdown-menu, .navbar .dropdown .dropdown-menu:hover {
+  display:block;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.3s linear;
+}
+  
+  .navbar .dropdown-menu {
+    border: 1px solid rgba(0,0,0,.15);
+    background-color: #fff;
+  }
+
+}
+
