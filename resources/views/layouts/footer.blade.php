@@ -2,9 +2,10 @@
 <style type="text/css">
     .footer_area p{
         color: white;
+        height: auto;
     }
 </style>
-      <footer class="footer_area section-padding-top-80-0" style="color:white; background-color: #327726; padding: 40px;" >
+      <footer class="footer_area " style="color:white; background-color: #327726; padding: 40px;margin-bottom: 0;" >
             <div class="container">
                 <div class="row text-center">
                     <div class="col-md-4">

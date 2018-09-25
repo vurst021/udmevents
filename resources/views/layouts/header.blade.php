@@ -25,43 +25,57 @@
     <header class="header_area">
         <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
             <!-- Classy Menu -->
-            <nav class="classy-navbar" id="essenceNav">
+            <nav class="classy-navbar col-4" id="essenceNav">
                 <!-- Logo -->
                 <a class="nav-brand" href="index.html">UDM PLANNER</a>
                 <!-- Navbar Toggler -->
                 <div class="classy-navbar-toggler">
                     <span class="navbarToggler"><span></span><span></span><span></span></span>
-                </div>
-                <!-- Menu -->
-                <div class="classy-menu">
-                    <!-- close btn -->
-                    <div class="classycloseIcon">
-                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                    </div>
-                    
+
                 </div>
             </nav>
-
-            <!-- Header Meta Data -->
-            <div class="header-meta d-flex clearfix justify-content-end">
-                
                 <!-- Group Area -->
-                <div class="group-area">
-                    <a href="{{ route('events')}}">Browse</a>
-                </div>
-                <!-- Cart Area -->
-                <div class="cart-area">
-                    <a href="#" id="essenceCartBtn">Events<span>3</span></a>
-                </div>
-                <!-- User Login Info -->
-                <div class="user-login-info">
-                    <a href="#">Sign In</a>
-                </div>
-            </div>
+                <div class="container col-6 offset-md-2 ">
+                    <div class="navbarRight row">
+                        <div class="group-area">
+                            <a href="{{ route('events')}}">Browse</a>
+                        </div>
+                        <!-- Cart Area -->
+                        <div class="cart-area">
+                            <a href="" id="essenceCartBtn">Groups<span>3</span></a>
+                        </div>
+                        <!-- User Login Info -->
+                        @guest
+                        <div class="user-login-info">
+                            <a href="{{ route('login') }}">Log In</a>
+                        </div>
+                       
+                        <div class="user-login-info">
+                            <a href="{{ route('register') }}">Sign Up</a>
+                        </div>
 
+                        @else
+                        <div class="user-login-info">
+                            <a href="#">Hi {{ ucwords(Auth::user()->fname) }} !</a>
+                        </div>
+                        <div class="user-login-info">
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form).submit();">{{ __('Logout')}}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                            </form>
+                        </div>
+                        @endguest
+                    </div>
+                </div>
+            
+
+            
         </div>
     </header>
     <!-- ##### Header Area End ##### -->
+    
 
     <!-- ##### Right Side Cart Area ##### -->
     <div class="cart-bg-overlay"></div>

@@ -254,6 +254,25 @@ img {
     color: #ffffff;
     background-color: #327726; }
 
+.essence-btn-secondary {
+  display: inline-block;
+  min-width: 170px;
+  height: 50px;
+  color: #000000;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 5px;
+  padding: 0 40px;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 50px;
+  background-color: silver;
+  letter-spacing: 1.5px;
+  font-weight: 600; }
+  .essence-btn:hover, .essence-btn:focus {
+    color: #ffffff;
+    background-color: #d9534f; }
+
 /* :: 4.0 Header Area CSS */
 .header_area {
   position: fixed;
@@ -389,7 +408,7 @@ img {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 50px;
         flex: 0 0 50px;
-        width: 90px;
+        width: 82px;
         line-height: 40px; } }
     .header_area .group-area a img,
     .header_area .user-login-info a img,
@@ -408,7 +427,7 @@ img {
         .header_area .group-area a span,
         .header_area .user-login-info a span,
         .header_area .cart-area a span {
-          font-size: 14px; } }
+          font-size: 20px; } }
   .header_area.sticky {
     position: fixed;
     z-index: 900;
@@ -695,10 +714,16 @@ img {
     margin-bottom: 20px;
     margin-right: 20px;
     border-left: 1px solid #ebebeb; }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .welcome_area .hero-content form {
+        margin-right: 40px; } }
     @media only screen and (max-width: 767px) {
       .welcome_area .search-area form {
         height: 30px;
-        border-left: none; } }
+        border-left: none;
+        margin-bottom: 30px;
+        margin-right: 0px; } }
+
 .welcome_area .search-area form input {
       border: none;
       background-color: #ffffff;
@@ -713,24 +738,29 @@ img {
       transition-duration: 500ms; }
       @media only screen and (max-width: 767px) {
         .welcome_area .search-area form input {
-          width: 170px;
+          width: 200px;
           height: 50px;
-          padding: 0 10px 0 30px; } }
+          padding: 0 10px 0 30px;
+          } }
       .welcome_area .search-area form input:focus {
         outline: none !important;
         width: 350px; }
         @media only screen and (min-width: 768px) and (max-width: 991px) {
           .welcome_area .search-area form input:focus {
-            width: 300px; } }
+            width: 300px; 
+            } }
         @media only screen and (max-width: 767px) {
           .welcome_area .search-area form input:focus {
-            width: 170px; } }
+            width: 170px;
+             } }
         @media only screen and (min-width: 480px) and (max-width: 767px) {
           .welcome_area .search-area form input:focus {
-            width: 270px; } }
+            width: 270px; 
+            } }
         @media only screen and (min-width: 576px) and (max-width: 767px) {
           .welcome_area .search-area form input:focus {
-            width: 300px; } }
+            width: 300px;
+             } }
     .welcome_area .search-area form button {
       position: absolute;
       z-index: 10;
@@ -745,7 +775,8 @@ img {
       @media only screen and (max-width: 767px) {
         .welcome_area .search-area form button {
           left: 10px;
-          height: 40px; } }
+          height: 40px;
+          margin-bottom: 10px; } }
 
 
 
