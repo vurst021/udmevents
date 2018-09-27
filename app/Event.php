@@ -13,7 +13,7 @@ class Event extends Model
      * @var array
      */
     protected $fillable = [
-        'fname', 'mname', 'lname', 'email', 'password', 'slug', 'gender', 'contact', 'user_type'
+        'event_name', 'event_description', 'event_orgID', 'event_date_time_start', 'event_date_time_end', 'event_typeID', 'event_fee', 'event_status'
     ];
 
     /**

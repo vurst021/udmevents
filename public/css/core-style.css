@@ -1206,7 +1206,7 @@ img {
       line-height: 60;
       margin: 0;
       text-transform: uppercase;
-      width: 220px; }
+      /*width: 220px;*/ }
       .single_product_details_area .single_product_desc .nice-select .current {
         line-height: 60px; }
       .single_product_details_area .single_product_desc .nice-select .list {
