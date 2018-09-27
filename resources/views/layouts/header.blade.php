@@ -27,10 +27,40 @@
             <!-- Classy Menu -->
             <nav class="classy-navbar col-4" id="essenceNav">
                 <!-- Logo -->
-                <a class="nav-brand" href="index.html">UDM PLANNER</a>
+                <a class="nav-brand" href="{{ route('home') }}">UDM PLANNER</a>
                 <!-- Navbar Toggler -->
                 <div class="classy-navbar-toggler">
                     <span class="navbarToggler"><span></span><span></span><span></span></span>
+                <div class="classy-menu">
+                    <!-- close btn -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li class="megamenu-item"><a href="{{ route('home') }}">Shop</a>
+                                    <div class="megamenu menu-on">
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Women's Collection</li>
+                                            <li><a href="shop.html">Dresses</a></li>
+                                            <li><a href="shop.html">Tops &amp; Shirts</a></li>
+                                            <li><a href="shop.html">Shorts</a></li>
+                                            <li><a href="shop.html">Pants</a></li>
+                                        </ul>
+                                       
+                                        <div class="single-mega cn-col-4">
+                                            <img src="http://localhost:8080/preppylane1/public/img/bg-img/bg-6.jpg" alt="">
+                                        </div>
+                                    </div>
+                                <span class="dd-trigger"></span><span class="dd-arrow"></span></li>
+                                
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
 
                 </div>
             </nav>

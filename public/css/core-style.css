@@ -436,10 +436,10 @@ img {
     width: 100%;
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15); }
   .classy-nav-container.green-nav{
-    background-color: #337726; }
+    background-color: #ffffff; }
   .classy-nav-container.green-nav a{
-    color: #FFDB58;
-    border-left: 2px solid #FFDB58;
+/*    color: #FFDB58;
+    border-left: 2px solid /*#FFDB58*/;*/
   }
 
 
@@ -832,7 +832,7 @@ img {
   z-index: 1;
   color: white; }
   .cta-area:after{
-    background-color: #327726;
+    background-color: #233e37;
     opacity: .7;
     position: absolute;
     width: 100%;
@@ -854,7 +854,7 @@ img {
       margin-bottom: 10px; }
     .cta-area .cta-content h2 {
       font-size: 60px;
-      color: silver;
+      color: #fefefe;
       margin-bottom: 30px; }
       .cta-area .cta-content p {
       font-size: 20px;
@@ -1243,8 +1243,8 @@ img {
     .breadcumb_area .page-title h1 {
     font-size: 40px;
     text-transform: uppercase;
-    font-weight: 700;
-    font-family: "Ubuntu", sans-serif;
+/*    font-weight: 700;*/
+    font-family: "Poppins", sans-serif;
     letter-spacing: 1px;
     margin-bottom: 10px; }
   .breadcumb_area .page-title h2 {

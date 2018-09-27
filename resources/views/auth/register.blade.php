@@ -1,6 +1,7 @@
-@include('layouts.header')
+@extends('layouts.app')
 
-<div class="container section-padding-80">
+@section('content')
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -11,42 +12,14 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="fname" type="text" class="form-control{{ $errors->has('fname') ? ' is-invalid' : '' }}" name="fname" value="{{ old('fname') }}" required autofocus>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
-                                @if ($errors->has('fname'))
+                                @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('fname') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Middle Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="mname" type="text" class="form-control{{ $errors->has('mname') ? ' is-invalid' : '' }}" name="mname" value="{{ old('mname') }}" required autofocus>
-
-                                @if ($errors->has('mname'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('mname') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="lname" type="text" class="form-control{{ $errors->has('lname') ? ' is-invalid' : '' }}" name="lname" value="{{ old('lname') }}" required autofocus>
-
-                                @if ($errors->has('lname'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('lname') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -88,32 +61,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row " ">
-                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
-
-                            <div class="col-md-6" style="padding-top: 10px;">
-                                <div class="form-check form-check-inline">
-                                  <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male"> Male
-                                  </label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                  <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female"> Female
-                                  </label>
-                                </div>
-                                
-                                @if ($errors->has('gender'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('gender') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        
-
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -127,4 +74,4 @@
         </div>
     </div>
 </div>
-@include('layouts.footer')
+@endsection

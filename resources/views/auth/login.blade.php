@@ -1,8 +1,7 @@
+@extends('layouts.app')
 
-@include('layouts.header')
-
-
-<div class="container section-padding-80">
+@section('content')
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -69,7 +68,4 @@
         </div>
     </div>
 </div>
-
-
-
-@include('layouts.footer')
+@endsection
