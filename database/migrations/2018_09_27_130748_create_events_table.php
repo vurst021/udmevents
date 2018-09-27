@@ -18,10 +18,8 @@ class CreateEventsTable extends Migration
             $table->string('event_name');
             $table->text('event_description');
             $table->integer('event_orgID');
-            $table->string('event_timeStart');
-            $table->date('event_date');
-            $table->time('event_time_start');
-            $table->time('event_time_end');
+            $table->dateTime('event_date_time_start');
+            $table->dateTime('event_date_time_end');
             $table->string('event_typeID');
             $table->integer('event_fee');
             $table->string('event_status');
