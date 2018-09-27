@@ -116,6 +116,11 @@
                                     <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female"> Female
                                   </label>
                                 </div>
+                                <div class="form-check form-check-inline">
+                                  <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="others"> Others
+                                  </label>
+                                </div>
                                 
                                 @if ($errors->has('gender'))
                                     <span class="invalid-feedback" role="alert">
