@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('fname');
             $table->string('mname');
             $table->string('lname');
-            $table->string('gender');
+            $table->string('gender')->nullable();
             $table->string('slug');
             $table->string('user_type')->default("guest");
             $table->string('contact');
