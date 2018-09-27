@@ -27,7 +27,7 @@
             <!-- Classy Menu -->
             <nav class="classy-navbar col-4" id="essenceNav">
                 <!-- Logo -->
-                <a class="nav-brand" href="{{ route('home') }}">UDM PLANNER</a>
+                <a class="nav-brand" href="{{ route('index') }}">UDM PLANNER</a>
                 <!-- Navbar Toggler -->
                 <div class="classy-navbar-toggler">
                     <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -63,8 +63,23 @@
                     </div>
 
                 </div>
-            </nav>
-                <!-- Group Area -->
+            </nav>                <!-- Group Area -->
+                        @guest
+                <div class="container col-4 offset-md-4 ">
+                    <div class="navbarRight row">
+                        <!-- User Login Info -->
+                        <div class="user-login-info">
+                            <a href="{{ route('login') }}">Log In</a>
+                        </div>
+                       
+                        <div class="user-login-info">
+                            <a href="{{ route('register') }}">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                        @else
                 <div class="container col-6 offset-md-2 ">
                     <div class="navbarRight row">
                         <div class="group-area">
@@ -74,17 +89,6 @@
                         <div class="cart-area">
                             <a href="" id="essenceCartBtn">Groups<span>3</span></a>
                         </div>
-                        <!-- User Login Info -->
-                        @guest
-                        <div class="user-login-info">
-                            <a href="{{ route('login') }}">Log In</a>
-                        </div>
-                       
-                        <div class="user-login-info">
-                            <a href="{{ route('register') }}">Sign Up</a>
-                        </div>
-
-                        @else
                         <div class="user-login-info">
                             <a href="#">Hi {{ ucwords(Auth::user()->fname) }} !</a>
                         </div>
@@ -96,9 +100,10 @@
                                                 @csrf
                             </form>
                         </div>
-                        @endguest
                     </div>
                 </div>
+                        @endguest
+
             
 
             

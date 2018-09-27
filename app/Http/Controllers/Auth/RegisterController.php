@@ -52,6 +52,7 @@ class RegisterController extends Controller
             'fname' => 'required|string|max:15',
             'mname' => 'required|string|max:15',
             'lname' => 'required|string|max:15',
+            'contact' => 'required',
             'email' => 'required|string|email|max:50|unique:users',
             'gender' => 'required',
             'password' => 'required|string|min:6|confirmed',
@@ -71,7 +72,9 @@ class RegisterController extends Controller
             'mname' => ucwords($data['mname']),
             'lname' => ucwords($data['lname']),
             'gender' => $data['gender'],
+            'contact' => ucwords($data['contact']),
             'email' => $data['email'],
+            'user_type' => ucwords('guest'),
             'slug' => str_before($data['email'], '@'),
             'password' => Hash::make($data['password']),
         ]);

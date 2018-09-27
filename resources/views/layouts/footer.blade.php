@@ -54,4 +54,9 @@
     <script src="js/classy-nav.min.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('body').fadeIn(500);
+        });
+    </script>
     

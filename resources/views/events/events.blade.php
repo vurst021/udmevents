@@ -1,4 +1,5 @@
-@include('layouts.header')
+@extends('main')
+@section('content')
 
     <!-- ##### Breadcumb Area Start ##### -->
     <div class="breadcumb_area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
@@ -320,9 +321,6 @@
     </section>
     <!-- ##### Shop Grid Area End ##### -->
 
-    @include('layouts.footer')
 
     <script type="text/javascript" src="js/meganav.js"></script>
-</body>
-
-</html>
+@endsection

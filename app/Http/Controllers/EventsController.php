@@ -13,7 +13,7 @@ class EventsController extends Controller
      */
     public function index()
     {
-        return view('events');
+        return view('events.events');
     }
 
     /**
@@ -21,9 +21,13 @@ class EventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        $this->validate($request,[
+
+        ]);
+        return view('events.event-create');
     }
 
     /**

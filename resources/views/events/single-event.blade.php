@@ -1,4 +1,4 @@
-@include('layouts.header')
+@extends('main')@section('content')
     
 
     <!-- ##### Single Product Details Area Start ##### -->
@@ -56,7 +56,4 @@
     </section>
     <!-- ##### Single Product Details Area End ##### -->
 
-   @include('layouts.footer')
-</body>
-
-</html>
+@endsection

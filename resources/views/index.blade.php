@@ -1,6 +1,6 @@
 @include('layouts.header')
 
-    <!-- ##### Welcome Area Start ##### -->
+{{--     <!-- ##### Welcome Area Start ##### -->
     <section class="welcome_area bg-img background-overlay" style="background-image: url(img/bg-img/breadcumb.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
@@ -22,9 +22,9 @@
             </div>
         </div>
     </section>
-    <!-- ##### Welcome Area End ##### -->
+    <!-- ##### Welcome Area End ##### --> --}}
 
-    <!-- ##### Top Catagory Area Start ##### -->
+{{--     <!-- ##### Top Catagory Area Start ##### -->
 
     <div class="top_catagory_area section-padding-80 clearfix">
         <div class="container">
@@ -57,7 +57,7 @@
             </div>
         </div>
     </div>
-    <!-- ##### Top Catagory Area End ##### -->
+    <!-- ##### Top Catagory Area End ##### --> --}}
 
     <!-- ##### CTA Area Start ##### -->
     <div class="cta-area" style="background-image: url(img/core-img/udm.jpg); background-size: 100% 100%;">
@@ -67,7 +67,7 @@
                     <div class="cta-content bg-img background-overlay">
                         <div class="h-100 d-flex align-items-center justify-content-end">
                             <div class="cta--text">
-                                <h2>About This Page</h2>
+                                <h2>UDM Events</h2>
                                 <p>This web application will help the different organizations in the Univesidad De Manila and also it's administration to organize events that will be conducted within the University. </p>
                                 <a href="#" class="btn essence-btn">About UDM</a>
                             </div>

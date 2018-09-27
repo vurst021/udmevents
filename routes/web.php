@@ -13,10 +13,10 @@
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 Route::get('/single-event', function () {
-    return view('single-event');
+    return view('events.single-event');
 });
 
 Route::get('/organization', function () {
@@ -46,9 +46,13 @@ Route::get('/logout', 'Auth\LoginController@logout');
 */
 Route::group(['middleware' => ['web']], function(){
 
-Route::get('/event/create', 'EventsController@create')->name('event.create');
+	Route::get('/event-create', 'EventsController@create')->name('event.create');
 
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
