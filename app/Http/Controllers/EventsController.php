@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use App\Event as Event;
 
 class EventsController extends Controller
 {
@@ -21,12 +23,8 @@ class EventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-
-        $this->validate($request,[
-
-        ]);
         return view('events.event-create');
     }
 
@@ -39,6 +37,33 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         //
+        $validator = Validator::make($request->all(), [
+           'title' => 'required',
+           'description' => 'required',
+           'start_date_time' => 'required',
+           'end_date_time' => 'required',
+           'fee' => 'required',
+           'type' => 'required',
+           'place' => 'required',
+        ]);
+
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        Event::create([
+           'event_name' => $request->input('title'),
+           'event_description' => $request->input('description'),
+           'event_date_time_start' => $request->input('start_date_time'),
+           'event_date_time_end' => $request->input('end_date_time'),
+           'event_fee' => $request->input('fee'),
+           'event_typeID' => $request->input('type'),
+           'place' => $request->input('place'),
+           'event_orgID' => "38",
+           'event_status' => "p"
+
+        ]);
+        return view('events.event-create');
     }
 
     /**

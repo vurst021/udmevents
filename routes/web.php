@@ -46,6 +46,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::group(['middleware' => ['web']], function(){
 
 	Route::get('/event-create', 'EventsController@create')->name('event.create');
+	Route::post('/event-store', 'EventsController@store')->name('event.store');
 
 });
 Auth::routes();
