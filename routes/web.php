@@ -19,9 +19,8 @@ Route::get('/single-event', function () {
     return view('events.single-event');
 });
 
-Route::get('/organization', function () {
-    return view('org');
-});
+Route::get('/organization','OrganizationController@index')->name('organization');
+Route::get('/organization/{org}','OrganizationController@show')->name('organization.show');
 
 
 

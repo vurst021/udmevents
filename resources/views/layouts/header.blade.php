@@ -15,8 +15,8 @@
     <link rel="icon" href="img/core-img/udm-logo-final.png">
 
     <!-- Core Style CSS -->
-    <link rel="stylesheet" href="css/core-style.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/core-style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
 
 </head>
 
@@ -25,46 +25,13 @@
     <header class="header_area">
         <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
             <!-- Classy Menu -->
-            <nav class="classy-navbar col-4" id="essenceNav">
+            <nav class="classy-navbar col-md-4 col-sm-12" id="essenceNav">
                 <!-- Logo -->
                 <a class="nav-brand" href="{{ route('index') }}">UDM PLANNER</a>
                 <!-- Navbar Toggler -->
-                <div class="classy-navbar-toggler">
-                    <span class="navbarToggler"><span></span><span></span><span></span></span>
-                <div class="classy-menu">
-                    <!-- close btn -->
-                    <div class="classycloseIcon">
-                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                    </div>
-                        <!-- Nav Start -->
-                        <div class="classynav">
-                            <ul>
-                                <li class="megamenu-item"><a href="{{ route('home') }}">Shop</a>
-                                    <div class="megamenu menu-on">
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Women's Collection</li>
-                                            <li><a href="shop.html">Dresses</a></li>
-                                            <li><a href="shop.html">Tops &amp; Shirts</a></li>
-                                            <li><a href="shop.html">Shorts</a></li>
-                                            <li><a href="shop.html">Pants</a></li>
-                                        </ul>
-                                       
-                                        <div class="single-mega cn-col-4">
-                                            <img src="http://localhost:8080/preppylane1/public/img/bg-img/bg-6.jpg" alt="">
-                                        </div>
-                                    </div>
-                                <span class="dd-trigger"></span><span class="dd-arrow"></span></li>
-                                
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </div>
-                        <!-- Nav End -->
-                    </div>
-
-                </div>
+                
             </nav>                <!-- Group Area -->
-                        @guest
+            @guest
                 <div class="container col-4 offset-md-4 ">
                     <div class="navbarRight row">
                         <!-- User Login Info -->
@@ -79,34 +46,30 @@
                 </div>
 
 
-                        @else
-                <div class="container col-6 offset-md-2 ">
-                    <div class="navbarRight row">
-                        <div class="group-area">
-                            <a href="{{ route('events')}}">Browse</a>
-                        </div>
-                        <!-- Cart Area -->
-                        <div class="cart-area">
-                            <a href="" id="essenceCartBtn">Groups<span>3</span></a>
-                        </div>
-                        <div class="user-login-info">
-                            <a href="#">Hi {{ ucwords(Auth::user()->fname) }} !</a>
-                        </div>
-                        <div class="user-login-info">
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form).submit();">{{ __('Logout')}}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                @csrf
-                            </form>
-                        </div>
+             @else
+            <div class="container col-sm-12 col-lg-4 offset-lg-2">
+                <div class="navbarRight row col-12 col-xs-12">
+                    <div class="group-area col-sm-3 col-xs-3">
+                        <a href="{{ route('events')}}">Events</a>
+                    </div>
+                    <!-- Cart Area -->
+                    <div class="cart-area col-sm-3 col-xs-3">
+                        <a href="{{ route('organization')}}" >Org<span>3</span></a>
+                    </div>
+                    <div class="user-login-info col-sm-3 col-xs-3">
+                        <a href="#">Hi {{ ucwords(Auth::user()->fname) }} !</a>
+                    </div>
+                    <div class="user-login-info col-sm-3 col-xs-3">
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form).submit();">{{ __('Logout')}}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                        </form>
                     </div>
                 </div>
-                        @endguest
-
-            
-
-            
+            </div>
+            @endguest
         </div>
     </header>
     <!-- ##### Header Area End ##### -->
