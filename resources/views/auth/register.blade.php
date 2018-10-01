@@ -102,23 +102,23 @@
                             </div>
                         </div>
 
-                        <div class="form-group row " ">
+                        <div class="form-group row " >
                             <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
 
                             <div class="col-md-6" style="padding-top: 10px;">
                                 <div class="form-check form-check-inline">
                                   <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male"> Male
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male" required{{ old('gender') == 'male'? 'checked' : '' }}> Male
                                   </label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                   <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female"> Female
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female" required{{ old('gender') == 'female'? 'checked' : '' }}> Female
                                   </label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                   <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="others"> Others
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="others" required{{ old('gender') == 'others'? 'checked' : '' }}> Others
                                   </label>
                                 </div>
                                 
