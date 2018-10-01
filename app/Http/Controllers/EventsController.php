@@ -15,7 +15,8 @@ class EventsController extends Controller
      */
     public function index()
     {
-        return view('events.events');
+        $events = Event::all();
+        return view('index', ['events' => $events ]);
     }
 
     /**
@@ -54,11 +55,11 @@ class EventsController extends Controller
         Event::create([
            'event_name' => $request->input('title'),
            'event_description' => $request->input('description'),
-           'event_date_time_start' => $request->input('start_date_time'),
-           'event_date_time_end' => $request->input('end_date_time'),
+           'event_date_time_start' => date("Y-m-d H:i:s", strtotime($request->input('start_date_time'))),
+           'event_date_time_end' => date("Y-m-d H:i:s", strtotime($request->input('end_date_time'))),
            'event_fee' => $request->input('fee'),
            'event_typeID' => $request->input('type'),
-           'place' => $request->input('place'),
+           'event_place' => $request->input('place'),
            'event_orgID' => "38",
            'event_status' => "p"
 

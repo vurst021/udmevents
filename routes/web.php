@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', 'EventsController@index')->name('index');
 
 Route::get('/single-event', function () {
     return view('events.single-event');

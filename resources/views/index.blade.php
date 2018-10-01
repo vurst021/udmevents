@@ -95,6 +95,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 row">
+                    @foreach($events as $event)
                         <!-- Single Product -->
                         <div class="single-product-wrapper">
                             <!-- Product Image -->
@@ -109,12 +110,18 @@
                             </div>
                             <!-- Product Description -->
                             <div class="product-description">
-                                <span>Date and Time</span>
+                                <span>{{$event->event_date_time_start}}</span>
                                 <a href="single-product-details.html">
-                                    <h4>Title</h4>
+                                    <h4>{{$event->event_name}}</h4>
                                 </a>
-                                <p class="product-venue">Venue</p>
-                                <p class="product-price">Price</p>
+                                <p class="product-venue">{{$event->event_place}}</p>
+                                <p class="product-price">
+                                    @if($event->event_price)
+                                        {{$event->event_price}}
+                                    @else
+                                        Free
+                                    @endif
+                                </p>
 
                                 <!-- Hover Content -->
                                 <div class="hover-content">
@@ -125,7 +132,8 @@
                                 </div>
                             </div>
                         </div>
-
+                    @endforeach
+{{-- 
                         <!-- Single Product -->
                         <div class="single-product-wrapper"  >
                             <!-- Product Image -->
@@ -192,7 +200,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         
                     
