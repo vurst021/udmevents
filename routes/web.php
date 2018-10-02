@@ -11,26 +11,6 @@
 |
 */
 
-Route::get('/', 'EventsController@index')->name('index');
-
-Route::get('/single-event', function () {
-    return view('events.single-event');
-});
-
-Route::get('/organization','OrganizationController@index')->name('organization');
-Route::get('/organization/{org}','OrganizationController@show')->name('organization.show');
-
-
-
-
-
-Route::get('/events', 'EventsController@index')->name('events');
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/logout', 'Auth\LoginController@logout');
 /*
 |--------------------------------------------------------------------------
 | Middleware Routes
@@ -43,14 +23,34 @@ Route::get('/logout', 'Auth\LoginController@logout');
 */
 Route::group(['middleware' => ['web']], function(){
 
-	Route::get('/event-create', 'EventsController@create')->name('event.create');
-	Route::post('/event-store', 'EventsController@store')->name('event.store');
+	Route::get('/', 'EventsController@index')->name('index');
+
+	Route::get('/single-event', function () {
+	    return view('event.single-event');
+	});
+
+	Route::get('/organization','OrganizationController@index')->name('organization');
+
+	Route::get('/organization/{org}','OrganizationController@show')->name('organization.show');
+
+	Route::get('/events', 'EventsController@index')->name('events');
+
+	Route::get('/home', 'HomeController@index')->name('home');
+
+	Route::get('/logout', 'Auth\LoginController@logout');
+
+	Auth::routes(['verify' => true]);
+
+	Route::get('/home', 'HomeController@index')->name('home');
+
+	Route::group(['middleware' => ['adminAuth']], function(){
+
+		Route::get('admin/event-requests', 'EventsController@eventRequests')->name('event.requests');
+
+		Route::get('/event-create', 'EventsController@create')->name('event.create');
+		
+		Route::post('/event-store', 'EventsController@store')->name('event.store');
+
+	});
 
 });
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes(['verify' => true]);
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Event as Event;
 
@@ -15,7 +16,9 @@ class EventsController extends Controller
      */
     public function index()
     {
+        // echo Auth::user()->lname;
         $events = Event::all();
+        // exit();
         return view('index', ['events' => $events ]);
     }
 
@@ -26,7 +29,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        return view('events.event-create');
+        return view('event.event-create');
     }
 
     /**
@@ -64,7 +67,7 @@ class EventsController extends Controller
            'event_status' => "p"
 
         ]);
-        return view('events.event-create');
+        return view('event.event-create');
     }
 
     /**
@@ -111,4 +114,16 @@ class EventsController extends Controller
     {
         //
     }
+
+    /**
+     * Show the event requests.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function eventRequests()
+    {
+        $eventRequests = Event::all();
+        return view('admin.event-requests',['events' => $eventRequests ]);
+    }
+
 }

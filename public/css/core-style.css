@@ -1231,7 +1231,7 @@ img {
   width: 100%;
   height: 140px; }
   .breadcumb_area:after {
-    background-color: #327726;
+    background-color: #54824dbd;
     opacity: .9;
     position: absolute;
     width: 100%;
@@ -1253,7 +1253,9 @@ img {
     font-weight: 700;
     font-family: "Ubuntu", sans-serif;
     letter-spacing: 1px;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    color:white;
+     }
   .breadcumb_area.breadcumb-style-two {
     width: 100%;
     height: 390px; }

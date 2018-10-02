@@ -12,11 +12,11 @@
     <title>UDM Event Planner</title>
 
     <!-- Favicon  -->
-    <link rel="icon" href="img/core-img/udm-logo-final.png">
+    <link rel="icon" href="{{URL::asset('img/core-img/udm-logo-final.png')}}">
 
     <!-- Core Style CSS -->
-    <link rel="stylesheet" href="{{ asset('css/core-style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('css/core-style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css')}}">
 
 </head>
 
@@ -54,11 +54,13 @@
                     </div>
                     <!-- Cart Area -->
                     <div class="cart-area col-sm-3 col-xs-3">
-                        <a href="{{ route('organization')}}" >Org<span>3</span></a>
+                        <a href="{{ route('organization')}}" >Org</a>
                     </div>
-                    <div class="user-login-info col-sm-3 col-xs-3">
-                        <a href="#">Hi {{ ucwords(Auth::user()->fname) }} !</a>
-                    </div>
+                    @if(Auth::user()->user_type == "a")
+                        <div class="user-login-info col-sm-3 col-xs-3">
+                            <a href="{{ route('event.requests') }}">Requests<span>3</span></a>
+                        </div>
+                    @endif
                     <div class="user-login-info col-sm-3 col-xs-3">
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form).submit();">{{ __('Logout')}}
@@ -92,7 +94,7 @@
                 <!-- Single Cart Item -->
                 <div class="single-cart-item">
                     <a href="#" class="product-image">
-                        <img src="img/product-img/product-1.jpg" class="cart-thumb" alt="">
+                        <img src="{{URL::asset('img/product-img/product-1.jpg')}}" class="cart-thumb" alt="">
                         <!-- Cart Item Desc -->
                         <div class="cart-item-desc">
                           <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
