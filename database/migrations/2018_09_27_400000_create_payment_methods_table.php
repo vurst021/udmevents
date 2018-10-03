@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCollegesTable extends Migration
+class CreatePaymentMethodsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateCollegesTable extends Migration
      */
     public function up()
     {
-        Schema::create('colleges', function (Blueprint $table) {
-            $table->increments('col_id');
-            $table->string('col_name');
+        Schema::create('payment_methods', function (Blueprint $table) {
+            $table->increments('payment_id');
+            $table->string('payment_method_name');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateCollegesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('colleges');
+        Schema::dropIfExists('payment_methods');
     }
 }

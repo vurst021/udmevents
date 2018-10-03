@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCollegesTable extends Migration
+class CreateAdminPositionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateCollegesTable extends Migration
      */
     public function up()
     {
-        Schema::create('colleges', function (Blueprint $table) {
-            $table->increments('col_id');
-            $table->string('col_name');
+        Schema::create('admin_positions', function (Blueprint $table) {
+            $table->increments('position_id');
+            $table->string('position_description');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateCollegesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('colleges');
+        Schema::dropIfExists('admin_positions');
     }
 }
