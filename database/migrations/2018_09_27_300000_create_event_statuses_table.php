@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCollegesTable extends Migration
+class CreateEventStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateCollegesTable extends Migration
      */
     public function up()
     {
-        Schema::create('colleges', function (Blueprint $table) {
-            $table->increments('col_id');
-            $table->string('col_name');
+        Schema::create('event_statuses', function (Blueprint $table) {
+            $table->increments('event_status_id');
+            $table->string('event_status_description');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateCollegesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('colleges');
+        Schema::dropIfExists('event_statuses');
     }
 }

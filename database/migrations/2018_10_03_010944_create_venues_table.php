@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCollegesTable extends Migration
+class CreateVenuesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateCollegesTable extends Migration
      */
     public function up()
     {
-        Schema::create('colleges', function (Blueprint $table) {
-            $table->increments('col_id');
-            $table->string('col_name');
+        Schema::create('venues', function (Blueprint $table) {
+            $table->increments('venue_id');
+            $table->string('venue_name');
+            $table->text('venue_description');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateCollegesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('colleges');
+        Schema::dropIfExists('venues');
     }
 }
