@@ -286,7 +286,8 @@ img {
   @media only screen and (max-width: 767px) {
     .header_area .classy-nav-container {
       -ms-flex-wrap: wrap;
-      flex-wrap: wrap; } }
+      flex-wrap: wrap; } 
+    }
   @media only screen and (max-width: 767px) {
     .header_area .classy-nav-container .classy-navbar-toggler {
       margin-left: auto;
@@ -440,6 +441,7 @@ img {
   .classy-nav-container.green-nav a{
 /*    color: #FFDB58;
     border-left: 2px solid /*#FFDB58*/;*/
+    opacity:1;
   }
 
 
