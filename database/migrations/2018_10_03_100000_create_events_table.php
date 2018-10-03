@@ -25,8 +25,8 @@ class CreateEventsTable extends Migration
 
             $table->dateTime('event_date_start');
             $table->dateTime('event_date_end');
-            $table->dateTime('event_time_start');
-            $table->dateTime('event_time_end');
+            $table->time('event_time_start');
+            $table->time('event_time_end');
 
             $table->integer('event_venueID')->unsigned()->nullable();
             $table->foreign('event_venueID')->references('venue_id')
