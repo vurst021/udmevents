@@ -17,7 +17,7 @@ class EventsController extends Controller
     public function index()
     {
         // echo Auth::user()->lname;
-        $events = Event::all();
+        $events = Event::where("event_typeID","2")->get();
         // exit();
         return view('index', ['events' => $events ]);
     }

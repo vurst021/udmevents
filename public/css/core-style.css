@@ -849,7 +849,7 @@ img {
     content: ''; }
   .cta-area .cta-content {
     width: 50%;
-    height: 550px; }
+    height: 700px; }
     @media only screen and (max-width: 767px) {
       .cta-area .cta-content {
         height: 400px;
@@ -1859,5 +1859,3 @@ img {
             color: #0315ff; }
 
 /* ##### The End ##### */
-
-/*# sourceMappingURL=core-style.css.map */

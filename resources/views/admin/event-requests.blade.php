@@ -1,6 +1,6 @@
-@extends('main')
-@section('content')
+@extends('admin-main')
 
+@section('admin-header')
     <!-- ##### Breadcumb Area Start ##### -->
     <div class="breadcumb_area bg-img" style="background-image: url('{{URL::asset('img/bg-img/breadcumb.jpg')}}');">
         <div class="container h-100">
@@ -14,8 +14,9 @@
         </div>
     </div>
     <!-- ##### Breadcumb Area End ##### -->
+@endsection
 
-
+@section('content')
     <!-- ##### New Arrivals Area Start ##### -->
     <section class="new_arrivals_area section-padding-80 clearfix">
         <div class="container">
