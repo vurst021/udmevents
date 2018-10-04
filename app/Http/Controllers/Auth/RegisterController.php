@@ -78,7 +78,7 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'contact' => ucwords($data['contact']),
             'email' => $data['email'],
-            'user_type' => ucwords('guest'),
+            'user_type' => ucwords('g'),
             'slug' => str_before($data['email'], '@'),
             'password' => Hash::make($data['password']),
             'email_token' => base64_encode($data['email']),

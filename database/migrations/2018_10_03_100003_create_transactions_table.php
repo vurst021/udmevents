@@ -16,7 +16,7 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->increments('trans_id');
             $table->integer('trans_userID')->unsigned()->nullable();
-            $table->foreign('trans_userID')->references('id')
+            $table->foreign('trans_userID')->references('user_id')
                   ->on('users')
                   ->onDelete('cascade');
             $table->integer('trans_eventID')->unsigned()->nullable();

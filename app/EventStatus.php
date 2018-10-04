@@ -13,6 +13,7 @@ class EventStatus extends Model
      *@var string
      */
     protected $primaryKey = 'event_status_id';
+    
     /**
      * The attributes that are mass assignable.
      *
