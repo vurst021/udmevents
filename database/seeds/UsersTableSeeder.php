@@ -15,113 +15,107 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
     	       $adminPosition = new AdminPosition();
-
         $adminPosition->position_name = "DEAN";
-
         $adminPosition->save();
 
         $adminPosition = new AdminPosition();
+        $adminPosition->position_name = "OSA";
+        $adminPosition->save();
 
+        $adminPosition = new AdminPosition();
         $adminPosition->position_name = "VPAA";
-
         $adminPosition->save();
 
         $adminPosition = new AdminPosition();
-
         $adminPosition->position_name = "VPAF";
-
         $adminPosition->save();
-
         $adminPosition = new AdminPosition();
-
         $adminPosition->position_name = "School President";
-
         $adminPosition->save();
 
-
         $user = new User();
-
         $user->fname = "Prince Charles";
-
         $user->mname = "Baluis";
-
         $user->lname = "Vergara";
-
         $user->gender = "m";
-
         $user->contact = "123123123";
-
-        $user->email = "pcbv1@gmail.com";
-
-        $user->user_type = "a";
-
-        $user->slug = "pcbv1";
-
-        $user->password = Hash::make("@Prince910");
-
-        $user->email_token = base64_encode("pcbv1@gmail.com");
-
-        $user->save();
-
-        $admin = new Admin();
-
-        $admin->admin_positionID = 1;
-
-        $user->isAdmin()->save($admin);
-
-
-        $user = new User();
-
-        $user->fname = "Prince Charles";
-
-        $user->mname = "Baluis";
-
-        $user->lname = "Vergara";
-
-        $user->gender = "m";
-
-        $user->contact = "123123123";
-
-        $user->email = "pcbv2@gmail.com";
-
-        $user->user_type = "a";
-
-        $user->slug = "pcbv2";
-
-        $user->password = Hash::make("@Prince910");
-
-        $user->email_token = base64_encode("pcbv2@gmail.com");
-
-        $user->save();
-
-        $admin = new Admin();
-
-        $admin->admin_positionID = 2;
-
-        $user->isAdmin()->save($admin);
-
-        $user = new User();
-
-        $user->fname = "Prince Charles";
-
-        $user->mname = "Baluis";
-
-        $user->lname = "Vergara";
-
-        $user->gender = "m";
-
-        $user->contact = "123123123";
-
         $user->email = "pcbv0@gmail.com";
-
         $user->user_type = "g";
-
         $user->slug = "pcbv0";
-
         $user->password = Hash::make("@Prince910");
-
         $user->email_token = base64_encode("pcbv0@gmail.com");
+        $user->save();
 
+        $user = new User();
+        $user->fname = "Prince Charles";
+        $user->mname = "Baluis";
+        $user->lname = "Vergara";
+        $user->gender = "m";
+        $user->contact = "123123123";
+        $user->email = "pcbv1@gmail.com";
+        $user->user_type = "a";
+        $user->slug = "pcbv1";
+        $user->password = Hash::make("@Prince910");
+        $user->email_token = base64_encode("pcbv1@gmail.com");
+        $user->save();
+        $admin = new Admin();
+        $admin->admin_positionID = 1;
+        $user->isAdmin()->save($admin);
+
+
+        $user = new User();
+        $user->fname = "Prince Charles";
+        $user->mname = "Baluis";
+        $user->lname = "Vergara";
+        $user->gender = "m";
+        $user->contact = "123123123";
+        $user->email = "pcbv2@gmail.com";
+        $user->user_type = "a";
+        $user->slug = "pcbv2";
+        $user->password = Hash::make("@Prince910");
+        $user->email_token = base64_encode("pcbv2@gmail.com");
+        $user->save();
+        $admin = new Admin();
+        $admin->admin_positionID = 2;
+        $user->isAdmin()->save($admin);
+
+        $user = new User();
+        $user->fname = "Prince Charles";
+        $user->mname = "Baluis";
+        $user->lname = "Vergara";
+        $user->gender = "m";
+        $user->contact = "123123123";
+        $user->email = "pcbv3@gmail.com";
+        $user->user_type = "g";
+        $user->slug = "pcbv3";
+        $user->password = Hash::make("@Prince910");
+        $user->email_token = base64_encode("pcbv3@gmail.com");
+        $user->save();
+
+        $user = new User();
+        $user->fname = "Prince Charles";
+        $user->mname = "Baluis";
+        $user->lname = "Vergara";
+        $user->gender = "m";
+        $user->contact = "123123123";
+        $user->email = "pcbv4@gmail.com";
+        $user->user_type = "g";
+        $user->slug = "pcbv4";
+        $user->password = Hash::make("@Prince910");
+        $user->email_token = base64_encode("pcbv4@gmail.com");
+        $user->save();
+
+        $user = new User();
+        $user->fname = "Prince Charles";
+        $user->mname = "Baluis";
+        $user->lname = "Vergara";
+        $user->gender = "m";
+        $user->contact = "123123123";
+        $user->email = "pcbv5@gmail.com";
+        $user->user_type = "g";
+        $user->slug = "pcbv5";
+        $user->password = Hash::make("@Prince910");
+        $user->email_token = base64_encode("pcbv5@gmail.com");
         $user->save();
         
     }

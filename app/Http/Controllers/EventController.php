@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Event as Event;
+use App\EventStatus;
 
-class EventsController extends Controller
+class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +18,7 @@ class EventsController extends Controller
     public function index()
     {
         // echo Auth::user()->lname;
-        $events = Event::where("event_typeID","2")->get();
+        $events = EventStatus::all()->where('admin_ID',5)->where('event_status_status',"p");
         // exit();
         return view('index', ['events' => $events ]);
     }

@@ -110,14 +110,14 @@
                             </div>
                             <!-- Product Description -->
                             <div class="product-description">
-                                <span>{{$event->event_date_time_start}}</span>
+                                <span>{{$event->eventStatusEvent->event_date_start}}</span>
                                 <a href="single-product-details.html">
-                                    <h4>{{$event->event_name}}</h4>
+                                    <h4>{{$event->eventStatusEvent->event_name}}</h4>
                                 </a>
-                                <p class="product-venue">{{$event->event_place}}</p>
+                                <p class="product-venue">{{$event->eventStatusEvent->event_place}}</p>
                                 <p class="product-price">
                                     @if($event->event_price)
-                                        {{$event->event_price}}
+                                        {{$event->eventStatusEvent->event_price}}
                                     @else
                                         Free
                                     @endif

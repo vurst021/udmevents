@@ -23,7 +23,7 @@
 */
 Route::group(['middleware' => ['web']], function(){
 
-	Route::get('/', 'EventsController@index')->name('index');
+	Route::get('/', 'EventController@index')->name('index');
 
 	Route::get('/single-event', function () {
 	    return view('event.single-event');
@@ -33,7 +33,7 @@ Route::group(['middleware' => ['web']], function(){
 
 	Route::get('/organization/{org}','OrganizationController@show')->name('organization.show');
 
-	Route::get('/events', 'EventsController@index')->name('events');
+	Route::get('/events', 'EventController@index')->name('events');
 
 	Route::get('/home', 'HomeController@index')->name('home');
 
@@ -47,9 +47,9 @@ Route::group(['middleware' => ['web']], function(){
 
 		Route::get('admin/event-requests', 'AdminController@eventRequests')->name('event.requests');
 
-		Route::get('/event-create', 'EventsController@create')->name('event.create');
+		Route::get('/event-create', 'EventController@create')->name('event.create');
 		
-		Route::post('/event-store', 'EventsController@store')->name('event.store');
+		Route::post('/event-store', 'EventController@store')->name('event.store');
 
 	});
 

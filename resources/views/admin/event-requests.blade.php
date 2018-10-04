@@ -43,9 +43,9 @@
                     </thead>
                     @foreach($events as $event)
                       <tr>
-                        <td>{{$event->event_name}} </td>
-                        <td>{{date("Y-m-d", strtotime($event->event_date_time_start))}} </td>
-                        <td>{{date("H:i:s", strtotime($event->event_date_time_start))}} </td>
+                        <td>{{$event->eventStatusEvent->event_name}} </td>
+                        <td>{{date("Y-m-d", strtotime($event->eventStatusEvent->event_date_start))}} </td>
+                        <td>{{date("H:i:s", strtotime($event->eventStatusEvent->event_time_start))}} </td>
                         <td><a href="">Approve</a> | <a href="">Reject</a> </td>
 
                       </tr>

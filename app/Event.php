@@ -13,7 +13,7 @@ class Event extends Model
      * @var array
      */
     protected $fillable = [
-        'event_name', 'event_description', 'event_orgID', 'event_date_time_start', 'event_date_time_end', 'event_typeID', 'event_fee', 'event_status', 'event_place'
+        'event_id','event_name', 'event_description', 'event_orgID', 'event_date_time_start', 'event_date_time_end', 'event_typeID', 'event_fee', 'event_status', 'event_place'
     ];
 
     /**
@@ -24,4 +24,11 @@ class Event extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function eventVenue(){
+        return $this->hasOne('App\Admin');
+    }
+    public function eventStatus(){
+        return $this->hasMany('App\EventStatus','event_id');
+    }
 }
