@@ -24,4 +24,11 @@ class Event extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function eventVenue(){
+        return $this->hasOne('App\Admin');
+    }
+    public function eventEventStatus(){
+        return $this->hasOne('App\EventStatus');
+    }
 }

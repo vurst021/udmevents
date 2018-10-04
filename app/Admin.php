@@ -7,11 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 class Admin extends Model
 {
     //
-    public function admins(){
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'admin_positionID'
+    ];
+
+    public function adminsUser()
+    {
     	return $this->belongsTo('App\User');
     }
 
-    public function adminPosition(){
+    public function adminAdminPosition()
+    {
     	return $this->hasOne('App\AdminPositions');
+    }
+
+    public function adminEventStatuses()
+    {
+    	return $this->hasMany('App\EventStatus');
     }
 }

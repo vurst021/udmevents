@@ -40,11 +40,6 @@ class CreateEventsTable extends Migration
             
             $table->integer('event_fee');
 
-            $table->integer('event_statusID')->unsigned()->nullable();
-            $table->foreign('event_statusID')->references('event_status_id')
-                  ->on('event_statuses')
-                  ->onDelete('cascade');
-
             $table->timestamps();
         });
     }

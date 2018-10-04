@@ -24,7 +24,7 @@ class CreateAttendeesTable extends Migration
                   ->on('events')
                   ->onDelete('cascade');
             $table->integer('userID')->unsigned()->nullable();
-            $table->foreign('userID')->references('id')
+            $table->foreign('userID')->references('user_id')
                   ->on('users')
                   ->onDelete('cascade');
 
