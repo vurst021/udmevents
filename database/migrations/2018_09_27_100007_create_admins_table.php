@@ -16,6 +16,9 @@ class CreateAdminsTable extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->increments('admin_id');
             $table->integer('user_ID');
+            $table->foreign('user_ID')->references('user_id')
+                  ->on('users')
+                  ->onDelete('cascade');
             $table->integer('admin_positionID')->unsigned()->nullable();
             $table->foreign('admin_positionID')->references('position_id')
                   ->on('admin_positions')
