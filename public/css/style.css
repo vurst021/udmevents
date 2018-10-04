@@ -1,4 +1,13 @@
 /* :: 8.0 Popular Products Area CSS */
+.anti-transparent-nav{
+  background-color: #ffffff !important;
+
+}
+.anti-transparent-nav a{
+    color: black !important;
+    border-left: 2px solid #ebebeb;
+}
+
 .event-page .single-product-wrapper {
   position: relative;
   z-index: 1;

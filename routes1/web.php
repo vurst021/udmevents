@@ -45,7 +45,7 @@ Route::group(['middleware' => ['web']], function(){
 
 	Route::group(['middleware' => ['adminAuth']], function(){
 
-		Route::get('admin/event-requests', 'AdminController@eventRequests')->name('event.requests');
+		Route::get('admin/event-requests', 'EventsController@eventRequests')->name('event.requests');
 
 		Route::get('/event-create', 'EventsController@create')->name('event.create');
 		

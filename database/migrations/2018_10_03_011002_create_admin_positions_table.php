@@ -15,7 +15,7 @@ class CreateAdminPositionsTable extends Migration
     {
         Schema::create('admin_positions', function (Blueprint $table) {
             $table->increments('position_id');
-            $table->string('position_description');
+            $table->string('position_name');
             $table->timestamps();
         });
     }

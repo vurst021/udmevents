@@ -23,7 +23,11 @@
 <body>
     <!-- ##### Header Area Start ##### -->
     <header class="header_area">
-        <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+        <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between 
+@if(Request::url() != URL::to('/'))
+anti-transparent-nav
+@endif
+        ">
             <!-- Classy Menu -->
             <nav class="classy-navbar col-md-4 col-sm-12" id="essenceNav">
                 <!-- Logo -->

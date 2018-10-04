@@ -15,7 +15,10 @@ class CreateEventStatusesTable extends Migration
     {
         Schema::create('event_statuses', function (Blueprint $table) {
             $table->increments('event_status_id');
-            $table->string('event_status_description');
+            $table->integer('event_ID')->unsigned()->nullable();
+            $table->integer('admin_ID')->unsigned()->nullable();
+            $table->string('event_status_status');
+            $table->text('event_status_comment')->nullable();
             $table->timestamps();
         });
     }
