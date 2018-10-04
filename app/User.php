@@ -11,6 +11,14 @@ class User extends Authenticatable implements MustVerifyEmail
     use Notifiable;
 
     /**
+     *sets the primary key
+     *
+     *
+     *@var string
+     */
+    protected $primaryKey = 'user_id';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -30,7 +38,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isAdmin(){
 
-        return $this->hasOne('App\Admin');
+        return $this->hasOne('App\Admin', 'user_ID', 'user_id');
 
     }
 }

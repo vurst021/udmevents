@@ -16,17 +16,8 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->increments('trans_id');
             $table->integer('trans_userID')->unsigned()->nullable();
-            $table->foreign('trans_userID')->references('user_id')
-                  ->on('users')
-                  ->onDelete('cascade');
             $table->integer('trans_eventID')->unsigned()->nullable();
-            $table->foreign('trans_eventID')->references('event_id')
-                  ->on('events')
-                  ->onDelete('cascade');
             $table->integer('trans_paymentID')->unsigned()->nullable();      
-            $table->foreign('trans_paymentID')->references('payment_id')
-                  ->on('payment_methods')
-                  ->onDelete('cascade');
 
             $table->timestamps();
         });

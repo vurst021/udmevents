@@ -16,17 +16,8 @@ class CreateAttendeesTable extends Migration
         Schema::create('attendees', function (Blueprint $table) {
             $table->increments('attendees_id');
             $table->integer('att_statusID')->unsigned()->nullable();
-            $table->foreign('att_statusID')->references('att_status_id')
-                  ->on('attendees_statuses')
-                  ->onDelete('cascade');
             $table->integer('event_ID')->unsigned()->nullable();      
-            $table->foreign('event_ID')->references('event_id')
-                  ->on('events')
-                  ->onDelete('cascade');
             $table->integer('userID')->unsigned()->nullable();
-            $table->foreign('userID')->references('user_id')
-                  ->on('users')
-                  ->onDelete('cascade');
 
             $table->timestamps();
         });

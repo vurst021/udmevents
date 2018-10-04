@@ -56,18 +56,22 @@ class EventController extends Controller
         {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        Event::create([
-           'event_name' => $request->input('title'),
-           'event_description' => $request->input('description'),
-           'event_date_time_start' => date("Y-m-d H:i:s", strtotime($request->input('start_date_time'))),
-           'event_date_time_end' => date("Y-m-d H:i:s", strtotime($request->input('end_date_time'))),
-           'event_fee' => $request->input('fee'),
-           'event_typeID' => $request->input('type'),
-           'event_place' => $request->input('place'),
-           'event_orgID' => "38",
-           'event_status' => "p"
 
-        ]);
+        $event = new Event();
+        $event->event_name = $request->input('title');
+        $event->event_description = $request->input('description');
+        $event->event_date_start = date("Y-m-d");
+        $event->event_date_end = date("Y-m-d");
+        $event->event_time_start = date("H:i:s");
+        $event->event_time_end = date("H:i:s");
+        $event->event_fee = $request->input('fee');
+        $event->save();
+
+        $eventStatus = new EventStatus();
+        $eventStatus->admin_id = 1;
+        $eventStatus->event_status_status = "p";
+        $event->eventStatus()->save($eventStatus);
+        
         return view('event.event-create');
     }
 
