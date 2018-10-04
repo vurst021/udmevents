@@ -116,8 +116,8 @@
                                 </a>
                                 <p class="product-venue">{{$event->eventStatusEvent->event_place}}</p>
                                 <p class="product-price">
-                                    @if($event->event_price)
-                                        {{$event->eventStatusEvent->event_price}}
+                                    @if($event->eventStatusEvent->event_fee)
+                                        {{$event->eventStatusEvent->event_fee}}
                                     @else
                                         Free
                                     @endif

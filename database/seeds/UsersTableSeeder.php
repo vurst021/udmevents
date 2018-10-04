@@ -86,11 +86,14 @@ class UsersTableSeeder extends Seeder
         $user->gender = "m";
         $user->contact = "123123123";
         $user->email = "pcbv3@gmail.com";
-        $user->user_type = "g";
+        $user->user_type = "a";
         $user->slug = "pcbv3";
         $user->password = Hash::make("@Prince910");
         $user->email_token = base64_encode("pcbv3@gmail.com");
         $user->save();
+        $admin = new Admin();
+        $admin->admin_positionID = 3;
+        $user->isAdmin()->save($admin);
 
         $user = new User();
         $user->fname = "Prince Charles";
@@ -99,11 +102,14 @@ class UsersTableSeeder extends Seeder
         $user->gender = "m";
         $user->contact = "123123123";
         $user->email = "pcbv4@gmail.com";
-        $user->user_type = "g";
+        $user->user_type = "a";
         $user->slug = "pcbv4";
         $user->password = Hash::make("@Prince910");
         $user->email_token = base64_encode("pcbv4@gmail.com");
         $user->save();
+        $admin = new Admin();
+        $admin->admin_positionID = 4;
+        $user->isAdmin()->save($admin);
 
         $user = new User();
         $user->fname = "Prince Charles";
@@ -112,11 +118,14 @@ class UsersTableSeeder extends Seeder
         $user->gender = "m";
         $user->contact = "123123123";
         $user->email = "pcbv5@gmail.com";
-        $user->user_type = "g";
+        $user->user_type = "a";
         $user->slug = "pcbv5";
         $user->password = Hash::make("@Prince910");
         $user->email_token = base64_encode("pcbv5@gmail.com");
         $user->save();
+        $admin = new Admin();
+        $admin->admin_positionID = 5;
+        $user->isAdmin()->save($admin);
         
     }
 }

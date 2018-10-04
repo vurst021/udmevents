@@ -18,7 +18,7 @@ class EventController extends Controller
     public function index()
     {
         // echo Auth::user()->lname;
-        $events = EventStatus::all()->where('admin_ID',5)->where('event_status_status',"p");
+        $events = EventStatus::all()->where('admin_ID',5)->where('event_status_status',"a");
         // exit();
         return view('index', ['events' => $events ]);
     }

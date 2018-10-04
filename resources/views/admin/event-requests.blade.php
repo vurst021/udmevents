@@ -46,7 +46,7 @@
                         <td>{{$event->eventStatusEvent->event_name}} </td>
                         <td>{{date("Y-m-d", strtotime($event->eventStatusEvent->event_date_start))}} </td>
                         <td>{{date("H:i:s", strtotime($event->eventStatusEvent->event_time_start))}} </td>
-                        <td><a href="">Approve</a> | <a href="">Reject</a> </td>
+                        <td><a href="{{ route('event.accept').'/'.$event->event_ID}}">Approve</a> | <a href="{{ route('event.reject').'/'.$event->event_ID}}">Reject</a> </td>
 
                       </tr>
                     @endforeach
