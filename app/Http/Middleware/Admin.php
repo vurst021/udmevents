@@ -17,7 +17,7 @@ class Admin
     public function handle($request, Closure $next)
     {
         if (Auth::user()->user_type != "a") {
-            return redirect('/events');
+            return redirect('/');
         }
 
         return $next($request);

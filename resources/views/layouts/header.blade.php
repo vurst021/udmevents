@@ -51,7 +51,7 @@ anti-transparent-nav
 
 
              @else
-            <div class="container col-sm-12 col-lg-4 offset-lg-2">
+            <div class="container col-sm-12 col-lg-5 offset-lg-1">
                 <div class="navbarRight row col-12 col-xs-12">
                     <div class="group-area col-sm-3 col-xs-3">
                         <a href="{{ route('events')}}">Events</a>
@@ -60,9 +60,14 @@ anti-transparent-nav
                     <div class="cart-area col-sm-3 col-xs-3">
                         <a href="{{ route('organization')}}" >Org</a>
                     </div>
+                    @if(Auth::user()->user_type == "g")
+                    <div class="group-area col-sm-3 col-xs-3">
+                        <a href="{{ route('event.create')}}">Request&nbsp;&nbsp;Event</a>
+                    </div>
+                    @endif
                     @if(Auth::user()->user_type == "a")
                         <div class="user-login-info col-sm-3 col-xs-3">
-                            <a href="{{ route('event.requests') }}">Requests<span>3</span></a>
+                            <a href="{{ route('event.requests') }}">Requests{{-- <span>3</span> --}}</a>
                         </div>
                     @endif
                     <div class="user-login-info col-sm-3 col-xs-3">

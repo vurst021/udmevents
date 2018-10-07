@@ -69,7 +69,7 @@
                             <div class="cta--text">
                                 <h2>UDM Events</h2>
                                 <p>This web application will help the different organizations in the Univesidad De Manila and also it's administration to organize events that will be conducted within the University. </p>
-                                <a href="#" class="btn essence-btn">About UDM</a>
+                                <a href="http://www.udm.edu.ph/udm-history/" class="btn essence-btn">About UDM</a>
                             </div>
 
                         </div>
@@ -127,7 +127,7 @@
                                 <div class="hover-content">
                                     <!-- Add to Cart -->
                                     <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">View Event</a>
+                                        <a href="{{ route('event.view')."/".$event->eventStatusEvent->event_id }}" class="btn essence-btn">View Event</a>
                                     </div>
                                 </div>
                             </div>

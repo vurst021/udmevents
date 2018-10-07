@@ -120,4 +120,17 @@ class EventController extends Controller
         //
     }
 
+    /**
+     * Show the event requests.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function viewEvent($eventID)
+    {
+        $event = Event::where('event_id',$eventID)->first();
+
+
+        return view('event.single-event', ['event' => $event ]);
+
+    }
 }
