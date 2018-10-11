@@ -70,13 +70,19 @@ anti-transparent-nav
                             <a href="{{ route('event.requests') }}">Requests{{-- <span>3</span> --}}</a>
                         </div>
                     @endif
-                    <div class="user-login-info col-sm-3 col-xs-3">
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                            document.getElementById('logout-form).submit();">{{ __('Logout')}}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                        </form>
+                    <div class="user-login-info col-sm-3 col-xs-3 dropdown">
+                        <a href="" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->user_fname }}</a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="">
+                            
+                            <a href="{{ url('/profile')}}/{{Auth::user()->user_slug }}">My Profile</a>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form).submit();">{{ __('Logout')}}
+                            </a>
+                            <!-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                            </form> -->
+                        </div>    
                     </div>
                 </div>
             </div>

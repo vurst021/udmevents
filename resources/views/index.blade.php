@@ -2,7 +2,7 @@
 
 
     <!-- ##### CTA Area Start ##### -->
-    <div class="cta-area" style="background-image: url(img/core-img/udm.jpg); background-size: 100% 100%;">
+    <div class="cta-area" >
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -11,7 +11,7 @@
                             <div class="cta--text">
                                 <h2>UDM Events</h2>
                                 <p>This web application will help the different organizations in the Univesidad De Manila and also it's administration to organize events that will be conducted within the University. </p>
-                                <a href="http://www.udm.edu.ph/udm-history/" class="btn essence-btn">About UDM</a>
+                                <a href="http://www.udm.edu.ph/udm-history/" target="_blank" class="btn essence-btn">About UDM</a>
                             </div>
 
                         </div>
@@ -91,7 +91,7 @@
                             <div class="organization-text">
                                 <h3>Organizations and Clubs</h3>
                                 <p>The University shapes leaders through the different academic organizations and non-academic clubs, by this guidelines not only the students will be future leaders but also creates opportunity to prepare for the career to take and ultimately serve as an asset to this country. </p>
-                                <a href="#/" class="btn essence-btn">See More</a>
+                                <a href="{{ route('organization')}}" class="btn essence-btn">See More</a>
                             </div>
 
                         </div>

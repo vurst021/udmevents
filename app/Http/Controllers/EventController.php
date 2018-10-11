@@ -81,9 +81,12 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        // echo Auth::user()->lname;
+        $events = EventStatus::all()->where('admin_ID',5)->where('event_status_status',"a");
+        // exit();
+        return view('events', ['events' => $events ]);
     }
 
     /**

@@ -25,6 +25,7 @@ Route::group(['middleware' => ['web']], function(){
 
 	Route::get('/', 'EventController@index')->name('index');
 			Route::post('/event-store', 'EventController@store')->name('event.store');
+			
 	// Route::get('/', 'EventController@index')->name('home');
 Route::get('/logout', 'Auth\LoginController@logout');
 	Auth::routes(['verify' => true]);
@@ -34,7 +35,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::group(['middleware' => ['auth']], function(){
 	Route::group(['middleware' => ['verified']], function(){
 
-		
+		Route::get("/profile/{slug}", 'ProfileController@index');
 
 		Route::get('/single-event/{eventID?}', 'EventController@viewEvent')->name('event.view');
 
@@ -42,7 +43,7 @@ Route::group(['middleware' => ['auth']], function(){
 
 		Route::get('/organization/{org}','OrganizationController@show')->name('organization.show');
 
-		Route::get('/events', 'EventController@index')->name('events');
+		Route::get('/events', 'EventController@show')->name('events');
 
 		Route::group(['middleware' => ['adminAuth']], function(){
 

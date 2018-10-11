@@ -18,8 +18,8 @@
     <section class="shop_grid_area section-padding-80">
         <div class="container">
             <div class="row">
-                <div class="container-fluid row event-nav" style="margin-bottom: 50px;">
-                    <div class="container-fluid navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid row event-nav" style="margin-bottom: 50px; ">
+                    <div class="container-fluid navbar navbar-expand-lg navbar-light" style="background-color: green;">
                       <a class="navbar-brand" href="#">Sort By</a>
                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -203,15 +203,14 @@
             
                 <!-- Event View -->
                         <div class="row event-page">
-
+                            @foreach($events as $event)
                             <!-- Single Product -->
-                            
                             <div class="single-product-wrapper">
                                 <!-- Product Image -->
                                 <div class="product-img h-50">
                                     <img src="img/core-img/event1.jpg" alt="">
                                     <!-- Hover Thumb -->
-                                    <img class="hover-img" src="img/product-img/product-3.jpg" alt="">
+                                    <img class="hover-img" src="img/product-img/product-2.jpg" alt="">
                                     <!-- group -->
                                     <div class="product-group">
                                         <a href="#" class="favme fa fa-heart"></a>
@@ -219,84 +218,32 @@
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
-                                    <span>Date and Time</span>
+                                    <span>{{$event->eventStatusEvent->event_date_start}}</span>
                                     <a href="single-product-details.html">
-                                        <h4>Title</h4>
+                                        <h4>{{$event->eventStatusEvent->event_name}}</h4>
                                     </a>
-                                    <p class="product-venue">Venue</p>
-                                    <p class="product-price">Price</p>
+                                    <p class="product-venue">{{$event->eventStatusEvent->event_place}}</p>
+                                    <p class="product-price">
+                                        @if($event->eventStatusEvent->event_fee)
+                                            {{$event->eventStatusEvent->event_fee}}
+                                        @else
+                                            Free
+                                        @endif
+                                    </p>
 
                                     <!-- Hover Content -->
                                     <div class="hover-content">
                                         <!-- Add to Cart -->
                                         <div class="add-to-cart-btn">
-                                            <a href="#" class="btn essence-btn">View Event</a>
+                                            <a href="{{ route('event.view')."/".$event->eventStatusEvent->event_id }}" class="btn essence-btn">View Event</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        @endforeach
                             
 
-                            <!-- Single Product -->
-                            <div class="single-product-wrapper">
-                                <!-- Product Image -->
-                                <div class="product-img h-50">
-                                    <img src="img/core-img/event2.jpg" alt="">
-                                    <!-- Hover Thumb -->
-                                    <img class="hover-img" src="img/product-img/product-3.jpg" alt="">
-                                    <!-- group -->
-                                    <div class="product-group">
-                                        <a href="#" class="favme fa fa-heart"></a>
-                                    </div>
-                                </div>
-                                <!-- Product Description -->
-                                <div class="product-description">
-                                    <span>Date and Time</span>
-                                    <a href="single-product-details.html">
-                                        <h4>Title</h4>
-                                    </a>
-                                    <p class="product-venue">Venue</p>
-                                    <p class="product-price">Price</p>
-
-                                    <!-- Hover Content -->
-                                    <div class="hover-content">
-                                        <!-- Add to Cart -->
-                                        <div class="add-to-cart-btn">
-                                            <a href="#" class="btn essence-btn">View Event</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="single-product-wrapper">
-                                <!-- Product Image -->
-                                <div class="product-img h-50">
-                                    <img src="img/core-img/event3.jpg" alt="">
-                                    <!-- Hover Thumb -->
-                                    <img class="hover-img" src="img/product-img/product-3.jpg" alt="">
-                                    <!-- group -->
-                                    <div class="product-group">
-                                        <a href="#" class="favme fa fa-heart"></a>
-                                    </div>
-                                </div>
-                                <!-- Product Description -->
-                                <div class="product-description">
-                                    <span>Date and Time</span>
-                                    <a href="single-product-details.html">
-                                        <h4>Title</h4>
-                                    </a>
-                                    <p class="product-venue">Venue</p>
-                                    <p class="product-price">Price</p>
-
-                                    <!-- Hover Content -->
-                                    <div class="hover-content">
-                                        <!-- Add to Cart -->
-                                        <div class="add-to-cart-btn">
-                                            <a href="#" class="btn essence-btn">View Event</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
 
                             
 
