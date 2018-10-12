@@ -450,7 +450,7 @@ img {
 /*dropdown*/
 .dropdown-menu{
   width: 130px;
-  height: 100px;
+  height: auto;
   background-color: #fcfcfc;
   border-radius: 5px;
   margin-top:-20px;

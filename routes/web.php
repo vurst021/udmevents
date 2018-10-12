@@ -21,6 +21,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/join',function(){
+	return Auth::user()->join();
+});
+
 Route::group(['middleware' => ['web']], function(){
 
 	Route::get('/', 'EventController@index')->name('index');
@@ -32,10 +37,28 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 	Route::get('/event-create', 'EventController@create')->name('event.create');
 
+	Route::get('/join-event/{userID?}', 'EventController@join')->name('event.join');
+
+	Route::get('/requests', 'AdminController@joinEventRequest')->name('join.request');
+
 Route::group(['middleware' => ['auth']], function(){
 	Route::group(['middleware' => ['verified']], function(){
 
 		Route::get("/profile/{slug}", 'ProfileController@index');
+
+		// Route::get("/changePhoto" ,function(){
+
+		// 	return view("profile.pic");
+		// });
+
+		// Profile Controller
+		Route::post('/uploadPhoto', 'ProfileController@uploadPhoto');
+			
+		Route::get('/editProfile', 'ProfileController@editProfileForm');
+
+		Route::post('/updateProfile', 'ProfileController@updateProfile');
+
+
 
 		Route::get('/single-event/{eventID?}', 'EventController@viewEvent')->name('event.view');
 

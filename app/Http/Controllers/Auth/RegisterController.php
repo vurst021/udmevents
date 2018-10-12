@@ -71,6 +71,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+         if ($data['gender'] == 'male') {
+            $pic_path = 'man.png';
+        }
+        else
+        {
+            $pic_path = 'girl.png';
+        }
+
         $user = User::create([
             'user_fname' => ucwords($data['fname']),
             'user_mname' => ucwords($data['mname']),
@@ -80,10 +88,11 @@ class RegisterController extends Controller
             'email' => ucwords($data['email']),
             'user_type' => ucwords('g'),
             'user_slug' => str_before($data['email'], '@'),
+            'user_pic' => $pic_path,
             'password' => Hash::make($data['password']),
             'email_token' => base64_encode($data['email']),
         ]);
-
+        
         return $user;
     }
     /**

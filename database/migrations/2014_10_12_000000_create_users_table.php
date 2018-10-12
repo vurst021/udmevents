@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('user_gender')->nullable();
             $table->string('user_slug');
             $table->string('user_type')->default("guest");
+            $table->string('user_pic')->nullable();
             $table->string('user_contact');
             $table->string('email')->unique();
             $table->string('email_token')->nullable();

@@ -12,8 +12,25 @@
             </div>
             <div class="card-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="{{ asset('/img/user-img/'. Auth::user()->user_pic. '.png')}}" class="img-circle img-responsive"> </div>
+                <div class="col-md-4 col-lg-4 " align="center"> <img alt="User Pic" src="{{ asset('/img/user-img/'.  Auth::user()->user_pic)}}" class="img-circle img-responsive">
+                  
+                  <!-- Change Picture -->
+                  <form action="{{ url('/')}}/uploadPhoto" method="post" enctype="multipart/form-data">
+                    <div class="input-group mb-3"> 
+                      <div class="custom-file">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <input type="file" class="custom-file-input" name="pic" id="inputGroupFile02">
+                        <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <input class="input-group-text btn btn-success" type="submit" id="inputGroupFileAddon02"></span>
+                      </div>
+                    </div>
+                  </form>
+                 </div>
                 
+
+
                 <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
                   <dl>
                     <dt>DEPARTMENT:</dt>
@@ -26,12 +43,12 @@
                     <dd>Male</dd>
                   </dl>
                 </div>-->
-                <div class=" col-md-9 col-lg-9 "> 
+                <div class=" col-md-8 col-lg-8 "> 
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
-                        <td>Department:</td>
-                        <td>Programming</td>
+                        <td>Member Since:</td>
+                        <td> {{ date("Y/m/d", strtotime(Auth::user()->email_verified_at)) }}</td>
                       </tr>
                       <tr>
                         <td>Hire date:</td>
@@ -45,7 +62,7 @@
                          <tr>
                              <tr>
                         <td>Gender</td>
-                        <td>Female</td>
+                        <td>{{ ucfirst(Auth::user()->user_gender) }}</td>
                       </tr>
                         <tr>
                         <td>Home Address</td>
@@ -53,10 +70,10 @@
                       </tr>
                       <tr>
                         <td>Email</td>
-                        <td><a href="mailto:info@support.com">info@support.com</a></td>
+                        <td><a href="{{ Auth::user()->email }}">{{ lcfirst(Auth::user()->email) }}</a></td>
                       </tr>
                         <td>Phone Number</td>
-                        <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
+                        <td>{{ Auth::user()->user_contact }} (Mobile)
                         </td>
                            
                       </tr>
@@ -64,15 +81,14 @@
                     </tbody>
                   </table>
                   
-                  <a href="#" class="btn btn-primary">My Sales Performance</a>
-                  <a href="#" class="btn btn-primary">Team Sales Performance</a>
+                  
                 </div>
               </div>
             </div>
                  <div class="card-footer" style="padding: 20px;margin-bottom: 20px;">
                        
                         <span class="pull-right">
-                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">Edit Profile</a>
+                            <a href="{{ url('editProfile') }}" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">Edit Profile</a>
                             
                         </span>
                     </div>

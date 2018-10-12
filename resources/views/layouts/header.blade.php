@@ -76,6 +76,10 @@ anti-transparent-nav
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="">
                             
                             <a href="{{ url('/profile')}}/{{Auth::user()->user_slug }}">My Profile</a>
+                            @if(Auth::user()->user_type == "a")
+                            <a href="{{ route('event.create')}}">Create Event</a>
+                            @endif
+
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form).submit();">{{ __('Logout')}}
                             </a>

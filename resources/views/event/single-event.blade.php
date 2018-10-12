@@ -16,7 +16,7 @@
         <!-- Single Product Description -->
         <div class="single_product_desc clearfix" style="height: 600px; overflow-y: scroll;">
             
-            <p>{{date("Y-m-d",strtotime($event->event_date_start))}} <br>
+            <p>{{date("Y-m-d",strtotime($event->event_date_start))}} | {{date("Y-m-d",strtotime($event->event_date_end))}} <br>
             Cecilio Munoz Palma Hall</p>
                 <h2>{{$event->event_name}}</h2>
             
@@ -34,10 +34,25 @@
                     
                     <!-- Cart & Favourite Box -->
                     <div class="cart-fav-box d-flex align-items-center">
-                        <!-- Cart -->
-                        <button type="submit" name="addtocart" value="5" class="btn essence-btn">Going</button>
+                        
+                        <?php
+                        $check = DB::table('attendees')->where('event_ID', '=', $event->event_id)->where('userID', '=', Auth::user()->user_id)->first();
+                        
+                        if($check == ''){       
+
+                        ?>
+
+                        <a href="{{ route('event.join')}}/{{ $event->event_id }}" class="btn essence-btn">Going</a>
+                        
+
+                        <?php }else {?>
+
+                        <a  class="btn disabled " toggle="disabled">Request Already Sent</a>
+
+                        <?php }?>
+                             
                         <!-- Favourite -->
-                        <button type="submit" name="addtocart" value="5" class="btn essence-btn-secondary ml-4" >No</button>
+                        <a type="submit"  class="btn essence-btn-secondary ml-4" >No</a>
                     </div>
                 </form>
             </div>
