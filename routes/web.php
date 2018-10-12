@@ -21,20 +21,44 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/join',function(){
+	return Auth::user()->join();
+});
+
 Route::group(['middleware' => ['web']], function(){
 
 	Route::get('/', 'EventController@index')->name('index');
 			Route::post('/event-store', 'EventController@store')->name('event.store');
+			
 	// Route::get('/', 'EventController@index')->name('home');
 Route::get('/logout', 'Auth\LoginController@logout');
 	Auth::routes(['verify' => true]);
 
 	Route::get('/event-create', 'EventController@create')->name('event.create');
 
+	Route::get('/join-event/{userID?}', 'EventController@join')->name('event.join');
+
+	Route::get('/requests', 'AdminController@joinEventRequest')->name('join.request');
+
 Route::group(['middleware' => ['auth']], function(){
 	Route::group(['middleware' => ['verified']], function(){
 
-		
+		Route::get("/profile/{slug}", 'ProfileController@index');
+
+		// Route::get("/changePhoto" ,function(){
+
+		// 	return view("profile.pic");
+		// });
+
+		// Profile Controller
+		Route::post('/uploadPhoto', 'ProfileController@uploadPhoto');
+			
+		Route::get('/editProfile', 'ProfileController@editProfileForm');
+
+		Route::post('/updateProfile', 'ProfileController@updateProfile');
+
+
 
 		Route::get('/single-event/{eventID?}', 'EventController@viewEvent')->name('event.view');
 
@@ -42,7 +66,7 @@ Route::group(['middleware' => ['auth']], function(){
 
 		Route::get('/organization/{org}','OrganizationController@show')->name('organization.show');
 
-		Route::get('/events', 'EventController@index')->name('events');
+		Route::get('/events', 'EventController@show')->name('events');
 
 		Route::group(['middleware' => ['adminAuth']], function(){
 

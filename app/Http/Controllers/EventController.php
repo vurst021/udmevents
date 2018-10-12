@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Event as Event;
 use App\EventStatus;
+use App\Attendee;
+
 
 class EventController extends Controller
 {
@@ -81,9 +83,12 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        // echo Auth::user()->lname;
+        $events = EventStatus::all()->where('admin_ID',5)->where('event_status_status',"a");
+        // exit();
+        return view('events', ['events' => $events ]);
     }
 
     /**
@@ -132,5 +137,29 @@ class EventController extends Controller
 
         return view('event.single-event', ['event' => $event ]);
 
+    }
+
+    public function join($id){
+        
+        
+        Auth::user()->joinEvent($id);
+        
+        return back();
+
+
+    }
+
+    public function requests()
+    {
+
+        $uid = Auth::User()->user_id;
+
+        $FriendRequests = DB::table('attendees')
+                ->rightJoin('events', 'events.id', '=', 'friends.requester')
+                ->where('status', '=', Null)
+                ->where('friends.user_requested', '=', $uid)->get(); //get the id of the friend requested
+
+                // echo $FriendRequests;
+        return view('profile.requests', compact('FriendRequests')); //return with the FriendRequests array
     }
 }

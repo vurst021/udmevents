@@ -15,10 +15,10 @@
 
         <!-- Single Product Description -->
         <div class="single_product_desc clearfix" style="height: 600px; overflow-y: scroll;">
-            
-            <p>February 17, 2018 | Tuesday <br>
+            @foreach($event)
+            <p>{{ $event->event_date_start }} | {{ $event->event_date_end }} <br>
             Cecilio Munoz Palma Hall</p>
-                <h2>Innovating Ideas Through Empowerment</h2>
+                <h2>{{ $event->event_name}}</h2>
             
             <p ><img src="img/org-img/jpcs.png" class="rounded-circle" style="width: 100px;"> Hosted by: Junior Philipine Computer Society </p>
             <p class="product-desc"><h4>Details:</h4>  
@@ -46,9 +46,9 @@
                     <!-- Cart & Favourite Box -->
                     <div class="cart-fav-box d-flex align-items-center">
                         <!-- Cart -->
-                        <button type="submit" name="addtocart" value="5" class="btn essence-btn">Going</button>
+                        <a type="submit" href="{{ route('join.event')}}" class="btn essence-btn">Going</a>
                         <!-- Favourite -->
-                        <button type="submit" name="addtocart" value="5" class="btn essence-btn-secondary ml-4" >No</button>
+                        <a type="submit" class="btn essence-btn-secondary ml-4" >No</a>
                     </div>
                 </form>
             </div>
