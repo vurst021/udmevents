@@ -74,13 +74,19 @@ Route::group(['middleware' => ['auth']], function(){
 		Route::get('/organization/sortby/{col}', 'OrganizationController@proCol')->name('organization.proCol');
 
 		Route::get('/events', 'EventController@show')->name('events');
-<<<<<<< HEAD
+
 
 		Route::get('/sortby/{col}', 'EventController@catSearch')->name('event.catSearch');
 
-=======
+		// orgHead middleware
+		Route::group(['middleware' => ['orgHeadAuth']], function(){
+
+		});
+
+		Route::get('orgHead/manage-events', 'OrgHeadController@manageEvents')->name('events.manage');
+
 		// admin middleware
->>>>>>> 66840830348baf7099e6d6e45f23922f9c8d2a0f
+
 		Route::group(['middleware' => ['adminAuth']], function(){
 
 			Route::get('admin/event-accept/{eventID?}', 'AdminController@acceptEventRequest')->name('event.accept');
@@ -89,13 +95,12 @@ Route::group(['middleware' => ['auth']], function(){
 
 			Route::get('admin/event-requests', 'AdminController@eventRequests')->name('event.requests');
 
-<<<<<<< HEAD
 			Route::get('admin/org-requests', 'AdminController@orgRequests')->name('org.requests');
-=======
+
 			Route::get('admin/event-accepted', 'AdminController@acceptedEvents')->name('event.accepted');
 
 			Route::get('admin/event-rejects', 'AdminController@rejectedEvents')->name('event.rejected');
->>>>>>> 66840830348baf7099e6d6e45f23922f9c8d2a0f
+
 			
 
 		});

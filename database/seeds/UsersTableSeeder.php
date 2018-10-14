@@ -44,6 +44,7 @@ class UsersTableSeeder extends Seeder
         $user->user_slug = "pcbv0";
         $user->password = Hash::make("@Prince910");
         $user->email_token = base64_encode("pcbv0@gmail.com");
+        $user->email_verified_at = date("Y-m-d H:i:s");
         $user->save();
 
         $user = new User();
@@ -57,6 +58,7 @@ class UsersTableSeeder extends Seeder
         $user->user_slug = "pcbv1";
         $user->password = Hash::make("@Prince910");
         $user->email_token = base64_encode("pcbv1@gmail.com");
+        $user->email_verified_at = date("Y-m-d H:i:s");
         $user->save();
         $admin = new Admin();
         $admin->admin_positionID = 1;
@@ -74,6 +76,7 @@ class UsersTableSeeder extends Seeder
         $user->user_slug = "pcbv2";
         $user->password = Hash::make("@Prince910");
         $user->email_token = base64_encode("pcbv2@gmail.com");
+        $user->email_verified_at = date("Y-m-d H:i:s");
         $user->save();
         $admin = new Admin();
         $admin->admin_positionID = 2;
@@ -90,6 +93,7 @@ class UsersTableSeeder extends Seeder
         $user->user_slug = "pcbv3";
         $user->password = Hash::make("@Prince910");
         $user->email_token = base64_encode("pcbv3@gmail.com");
+        $user->email_verified_at = date("Y-m-d H:i:s");
         $user->save();
         $admin = new Admin();
         $admin->admin_positionID = 3;
@@ -106,6 +110,7 @@ class UsersTableSeeder extends Seeder
         $user->user_slug = "pcbv4";
         $user->password = Hash::make("@Prince910");
         $user->email_token = base64_encode("pcbv4@gmail.com");
+        $user->email_verified_at = date("Y-m-d H:i:s");
         $user->save();
         $admin = new Admin();
         $admin->admin_positionID = 4;
@@ -122,6 +127,7 @@ class UsersTableSeeder extends Seeder
         $user->user_slug = "pcbv5";
         $user->password = Hash::make("@Prince910");
         $user->email_token = base64_encode("pcbv5@gmail.com");
+        $user->email_verified_at = date("Y-m-d H:i:s");
         $user->save();
         $admin = new Admin();
         $admin->admin_positionID = 5;

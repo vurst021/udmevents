@@ -1,4 +1,4 @@
-\<!-- ##### Footer Area Start ##### -->
+<!-- ##### Footer Area Start ##### -->
 <style type="text/css">
     .footer_area p{
         color: white;
