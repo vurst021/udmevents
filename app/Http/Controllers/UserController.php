@@ -11,6 +11,19 @@ use Hash;
 
 class UserController extends Controller
 {
+    public function userVerify($userEncEmail){
+
+        $userEncEmail = base64_decode($userEncEmail);
+
+        $user = User::where('email', $userEncEmail)->first();
+        
+        $user->email_verified_at = date("Y-m-d H:i:s");
+
+        if($user->save()){
+            return view('email.emailconfirm');
+        }
+
+    }
     public function postSignIn(Request $request)
     {
     	$user = User::first();
@@ -35,6 +48,7 @@ class UserController extends Controller
 
     }
 
+
     public function testSignIn()
     {
         $user = User::first();
@@ -56,4 +70,5 @@ class UserController extends Controller
          // return redirect()->back();
 
     }
+
 }

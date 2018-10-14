@@ -43,6 +43,34 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function acceptedEvents()
+    {
+        $adminType = Auth::user()->isAdmin->admin_positionID;
+        $eventRequests = EventStatus::all()->where('admin_ID',$adminType)->where('event_status_status',"a");
+
+        return view('admin.event-accepted',['events' => $eventRequests ]);
+
+    }
+
+    /**
+     * Show the event requests.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function rejectedEvents()
+    {
+        $adminType = Auth::user()->isAdmin->admin_positionID;
+        $eventRequests = EventStatus::all()->where('admin_ID',$adminType)->where('event_status_status',"r");
+
+        return view('admin.event-rejected',['events' => $eventRequests ]);
+
+    }
+
+    /**
+     * Show the event requests.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function acceptEventRequest($eventID)
     {
  		$adminType = Auth::user()->isAdmin->admin_positionID;
@@ -52,15 +80,23 @@ class AdminController extends Controller
         $eventRequest->save();
 
  		if($adminType != 5){
- 			$adminType++;
- 		
-	        $event = Event::where("event_id",$eventID)->first();
+            $adminType++;
 
-	        $eventStatus = new EventStatus();
+            //This is to remove duplicates
+            $checkIfExisting = EventStatus::where("event_ID",$eventID)->where('admin_ID', $adminType)->first();
 
-	        $eventStatus->admin_id = $adminType;
-			$eventStatus->event_status_status = "p";
-			$event->eventStatus()->save($eventStatus);
+            if($checkIfExisting){
+                // exits the proram
+                return redirect()->back();
+            }
+
+            $event = Event::where("event_id",$eventID)->first();
+
+            $eventStatus = new EventStatus();
+
+            $eventStatus->admin_ID = $adminType;
+            $eventStatus->event_status_status = "p";
+            $event->eventStatus()->save($eventStatus);
 		}
 
         return redirect()->back();

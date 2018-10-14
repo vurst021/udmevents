@@ -1,7 +1,7 @@
-<div class="classynav">
-    <ul>
-        <li class="megamenu-item"><a href="http://localhost:8080/preppyLane1/public/shop">Shop</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
+<nav class=" section-padding-80 single-product" style="">
+    <ul class="col-sm-12">
+        <li class="col-sm-12"><a href="{{ route('event.requests') }}">Pending</a></li>
+        <li class="col-sm-12"><a href="{{ route('event.accepted') }}">Accepted</a></li>
+        <li class="col-sm-12"><a href="{{ route('event.rejected') }}">Rejected</a></li>
     </ul>
-</div>
+</nav>

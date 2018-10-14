@@ -7,7 +7,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="page-title text-center">
-                        <h2>Requested   Events</h2>
+                        <h2>Rejected   Events</h2>
                     </div>
                 </div>
             </div>
@@ -36,18 +36,13 @@
                     <thead>
                       <tr>
                         <td>Event Name</td>
-                        <td>Date Start</td>
-                        <td>Time Start</td>
-                        <td>Action</td>
+                        <td>Date Rejected</td>
                       </tr>
                     </thead>
                     @foreach($events as $event)
                       <tr>
                         <td>{{$event->eventStatusEvent->event_name}} </td>
-                        <td>{{date("Y-m-d", strtotime($event->eventStatusEvent->event_date_start))}} </td>
-                        <td>{{date("H:i:s", strtotime($event->eventStatusEvent->event_time_start))}} </td>
-                        <td><a href="{{ route('event.accept').'/'.$event->event_ID}}">Approve</a> | <a href="{{ route('event.reject').'/'.$event->event_ID}}">Reject</a> </td>
-
+                        <td>{{date("Y-m-d", strtotime($event->created_at))}} </td>
                       </tr>
                     @endforeach
                   </table>
