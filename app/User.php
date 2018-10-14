@@ -44,4 +44,6 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne('App\Admin', 'user_ID', 'user_id');
 
     }
+
+    
 }

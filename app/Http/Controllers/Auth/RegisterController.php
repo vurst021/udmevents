@@ -71,7 +71,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-         if ($data['gender'] == 'male') {
+        if ($data['gender'] == 'Male') 
+        {
             $pic_path = 'man.png';
         }
         else

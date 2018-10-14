@@ -14,9 +14,14 @@
     <!-- Favicon  -->
     <link rel="icon" href="{{URL::asset('img/core-img/udm-logo-final.png')}}">
 
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
     <!-- Core Style CSS -->
+
     <link rel="stylesheet" href="{{ URL::asset('css/core-style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css')}}">
+
 
 </head>
 

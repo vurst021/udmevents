@@ -25,19 +25,21 @@
 
 
                 <hr>
-            <div class="container">
+            <div class="container border text-center align-items-center">
                 <!-- Form -->
                 <p><strong class="mr-4">Do You Want to Join ?</strong>Respond until August, 2018</p>
                 <form class="cart-form clearfix" method="post">
                     
                     
                     <!-- Cart & Favourite Box -->
-                    <div class="cart-fav-box d-flex align-items-center">
-                        <!-- Cart -->
-                        <button type="submit" name="addtocart" value="5" class="btn essence-btn">Join</button>
-                        <!-- Favourite -->
-                        <button type="submit" name="addtocart" value="5" class="btn essence-btn-secondary ml-4" >No</button>
-                    </div>
+                    
+                        <div class="cart-fav-box d-flex align-items-center ml-4" style="-webkit-filter: blur(5px);-moz-filter: blur(5px);-o-filter: blur(5px);-ms-filter: blur(5px);">
+                            <!-- Cart -->
+                            <button type="submit" name="addtocart" value="5" class="btn essence-btn" disable ">Join</button>
+                            <!-- Favourite -->
+                            <button type="submit" name="addtocart" value="5" class="btn essence-btn-secondary ml-4" >No</button>
+                        </div>
+                    <h5 style="position: absolute;left:100px;top: 300px;font-family: Copperplate Gothic;">This section is for future expansion</h5>
                 </form>
             </div>
         </div>

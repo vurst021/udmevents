@@ -1,4 +1,4 @@
-<!-- ##### Footer Area Start ##### -->
+\<!-- ##### Footer Area Start ##### -->
 <style type="text/css">
     .footer_area p{
         color: white;
@@ -54,9 +54,6 @@
     <script src="{{ asset('js/classy-nav.min.js')}}"></script>
     <!-- Active js -->
     <script src="{{ asset('js/active.js')}}"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('body').fadeIn(500);
-        });
+    
     </script>
     

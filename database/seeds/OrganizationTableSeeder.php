@@ -15,32 +15,37 @@ class OrganizationTableSeeder extends Seeder
         Organization::create([
         	'org_name' => 'Junior Philippine Computer Society',
         	'org_description' => 'Organization for Information Technology students and preparing them in the fields of IT industry',
-        	'org_slug' => 'jpcs'
+        	'org_slug' => 'jpcs',
+            'org_colID' => '6',
 
         ]);
 
         Organization::create([
         	'org_name' => 'Rotaract Universidad De Manila CET',
         	'org_description' => 'Organization of humanitarian for a better public service to humanity',
-        	'org_slug' => 'ract-cet'
+        	'org_slug' => 'ract-cet',
+            'org_colID' => '12',
         ]);
 
         Organization::create([
         	'org_name' => 'Institute of Electronic Engineers of the Philippines',
         	'org_description' => 'Organization for Electronic Communication Engineering students and preparing them in the fields of ECE industry',
-			'org_slug' => 'iecep'
+			'org_slug' => 'iecep',
+            'org_colID' => '6',
         ]);
 
         Organization::create([
         	'org_name' => 'Institute of Computer Engineers of the Philippines',
         	'org_description' => 'Organization for Computer Engineering students and preparing them in the fields of Computer Engineering industry',
-        	'org_slug' => 'icpep'
+        	'org_slug' => 'icpep',
+            'org_colID' => '6',
         ]);
 
         Organization::create([
         	'org_name' => 'Junior Philippine Institute of Accountants',
         	'org_description' => 'Organization for Accountants students and preparing them in the fields of Accounting industry',
-        	'org_slug' => 'jpia'
+        	'org_slug' => 'jpia',
+            'org_colID' => '1',
         ]);
     }
 }

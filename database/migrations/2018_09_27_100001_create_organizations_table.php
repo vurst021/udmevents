@@ -18,7 +18,9 @@ class CreateOrganizationsTable extends Migration
             $table->string('org_name')->unique();
             $table->integer('org_head_userID')->nullable();
             $table->text('org_description')->nullable();
-            $table->string('org_slug')->unique();       
+            $table->string('org_slug')->unique(); 
+            $table->integer('org_colID')->nullable();
+            $table->integer('org_status')->nullable();      
 
             $table->timestamps();
         });
