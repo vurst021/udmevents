@@ -6,29 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Organization extends Model
 {
+	public function user(){
 
-
-
-
-
-
-	protected $fillable = [
-        'org_name','org_slugs', 'org_headID', 'org_colID'
-    ];
-
-
-   	public function orgCollege(){
-   		return $this->hasOne('App\College');
-
-   	}
-
+		 return $this->belongsToMany('App\User');
+	}
 
 	public function event(){
 
 		 return $this->belongsTo('App\Event');
 	}
-
-	
 }
 
 

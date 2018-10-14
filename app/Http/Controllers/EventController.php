@@ -8,8 +8,6 @@ use Validator;
 use App\Event as Event;
 use App\EventStatus;
 use App\Attendee;
-use App\College;
-use App\Organization;
 
 
 class EventController extends Controller
@@ -86,14 +84,11 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show()
-    {   
-
-        $organizations = Organization::all();
-        $colleges = College::all();
+    {
         // echo Auth::user()->lname;
         $events = EventStatus::all()->where('admin_ID',5)->where('event_status_status',"a");
         // exit();
-        return view('event.events', ['events' => $events, 'colleges' => $colleges, 'organizations'=>$organizations ]);
+        return view('events', ['events' => $events ]);
     }
 
     /**
@@ -154,40 +149,6 @@ class EventController extends Controller
 
     }
 
-    public function catSearch($col_id)
-
-    {
-
-        if($col_id){
-
-
-            $organization = Organization::where('org_colID', $col_id)->first();
-            $evento = $organization->org_id;
-            $event = Event::where('event_orgID', $evento);
-            
-            // $events = DB::table('event_statuses')
-            //         ->rightJoin('events', 'events')
-            echo $events;
-            exit();
-            $colleges = College::all();  
-
-        }else{
-            
-            $colleges = College::all();
-            $organization = Organization::inRandomOrder()->take(20)->get();
-            $events = Event::all();
-        }
-        
-        return view('event.events')->with([
-                    'events' => $events,
-                    'colleges' => $colleges,
-            ]);
-               
-    
-
-        // return view('event.events')->with('category' , $category);
-    }
-
     public function requests()
     {
 
@@ -196,11 +157,9 @@ class EventController extends Controller
         $FriendRequests = DB::table('attendees')
                 ->rightJoin('events', 'events.id', '=', 'friends.requester')
                 ->where('status', '=', Null)
-                ->where('friends.user_requested', '=', $uid)->get(); //get the id of the event requested
+                ->where('friends.user_requested', '=', $uid)->get(); //get the id of the friend requested
 
                 // echo $FriendRequests;
-        return view('profile.requests', compact('FriendRequests')); //return with the EventRequests array
+        return view('profile.requests', compact('FriendRequests')); //return with the FriendRequests array
     }
-
-    
 }

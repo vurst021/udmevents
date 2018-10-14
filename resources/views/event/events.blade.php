@@ -1,50 +1,6 @@
-@include('layouts.header')
-  
-  <style type="text/css">
-    
-    .navbar{
-      font-size: 30px;
-    }
-    .navbar .nav-item .nav-link{
-      font-size: 20px;
-    }
-    .sticky-top{
-      top: 100px;
-    }
+@extends('main')
+@section('content')
 
-    .profile-card-5 .card-img-block {
-          width: 91%;
-          margin: 0 auto;
-          position: relative;
-          top: -20px;
-    }
-    .profile-card-5 .card-img-block img{
-        border-radius:5px;
-        box-shadow:0 0 10px rgba(0,0,0,0.63);
-    }
-    .profile-card-5 h5{
-          color:#4E5E30;
-          font-weight:600;
-      }
-      .profile-card-5 p{
-          font-size:14px;
-          font-weight:300;
-      }
-      .profile-card-5 .btn-primary{
-          background-color:#4E5E30;
-          border-color:#4E5E30;
-      }
-
-    .side-bar li a{
-
-        font-family: Copperplate Gothic;
-        font-weight: .2px;  
-      }
-      .side-bar li a:hover{
-        color: #c6e2ff;
-      }
-    
-  </style>
     <!-- ##### Breadcumb Area Start ##### -->
     <div class="breadcumb_area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
         <div class="container h-100">
@@ -60,62 +16,311 @@
     <!-- ##### Breadcumb Area End ##### -->
 
     <!-- ##### Shop Grid Area Start ##### -->
-
     <section class="shop_grid_area section-padding-80">
-
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col-4 side-bar" >
-                  <h2 style="font-family: Copperplate Gothic;margin-bottom:30px;">By Colleges</h2>
-                  <ul>
-                    
-                    @foreach ($colleges as $col)
-                      <li style="margin-bottom: 20px;" ><a href="{{route('event.catSearch', $col->col_id )}}">{{ $col->col_name}}</a></li>
-                    @endforeach
-                  </ul>
-                </div>
+                <div class="container-fluid row event-nav" style="margin-bottom: 50px;">
+                    <div class="container-fluid navbar navbar-expand-lg navbar-dark bg-dark">
+                      <a class="navbar-brand" href="#">Sort By</a>
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
 
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Categories
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                              
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-md-4">
+                                    <span class="text-uppercase text-white">Categories</span>
+                                    <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                      <a class="nav-link active" href="#">Active</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="#">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="#">Link item</a>
+                                    </li>
+                                  </ul>
+                                  </div>
+                                  <!-- /.col-md-4  -->
+                                  <div class="col-md-4">
+                                    <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                      <a class="nav-link active" href="#">Active</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="#">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="#">Link item</a>
+                                    </li>
+                                  </ul>
+                                  </div>
+                                  <!-- /.col-md-4  -->
+                                  <div class="col-md-4">
+                                    <a href="">
+                                      <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
+                                    </a>
+                                    <p class="text-white">Short image call to action</p>
+
+                                  </div>
+                                  <!-- /.col-md-4  -->
+                                </div>
+                              </div>
+                              <!--  /.container  -->
+
+
+                            </div>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              College
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-md-4">
+                                    <span class="text-uppercase text-white">Date</span>
+                                    <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                      <a class="nav-link active" href="#">Active</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="#">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="#">Link item</a>
+                                    </li>
+                                  </ul>
+                                  </div>
+                                  <!-- /.col-md-4  -->
+                                  <div class="col-md-4">
+                                    <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                      <a class="nav-link active" href="#">Active</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="#">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="#">Link item</a>
+                                    </li>
+                                  </ul>
+                                  </div>
+                                  <!-- /.col-md-4  -->
+                                  <div class="col-md-4">
+                                    <a href="">
+                                      <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
+                                    </a>
+                                    <p class="text-white">Short image call to action</p>
+
+                                  </div>
+                                  <!-- /.col-md-4  -->
+                                </div>
+                              </div>
+                              <!--  /.container  -->
+
+
+                            </div>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Price
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-md-4">
+                                   <span class="text-uppercase text-white">Price</span>
+                                    <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                      <a class="nav-link active" href="#">Active</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="#">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="#">Link item</a>
+                                    </li>
+                                  </ul>
+                                  </div>
+                                  <!-- /.col-md-4  -->
+                                  <div class="col-md-4">
+                                    <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                      <a class="nav-link active" href="#">Active</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="#">Link item</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="#">Link item</a>
+                                    </li>
+                                  </ul>
+                                  </div>
+                                  <!-- /.col-md-4  -->
+                                  <div class="col-md-4">
+
+                                    <a href="">
+                                      <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
+                                    </a>
+                                    <p class="text-white">Short image call to action</p>
+                                    
+                                  </div>
+                                  <!-- /.col-md-4  -->
+                                </div>
+                              </div>
+                              <!--  /.container  -->
+
+
+                            </div>
+                          </li>
+
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                          <button class="essence-btn rounded my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                      </div>
+
+
+                    </div>
+                </div>
                     
             
             
                 <!-- Event View -->
+                        <div class="row event-page">
 
-                        <div class="row event-page col-8">
+                            <!-- Single Product -->
                             
-                              <!--Profile Card 5-->
-                                @foreach($events as $event)
-                                  <div class="col-md-4 mt-4" style="font-family: Copperplate Gothic;" >
-                                      <div class="card profile-card-5" style="height: 450px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);border-radius: 10px;">
-                                          <div class="card-img-block">
-                                              <img class="card-img-top" src="{{ asset('img/core-img/event1.jpg') }}" alt="Card image cap">
-                                          </div>
-                                              <div class="card-body pt-0">
-                                                <p>{{$event->event_date_start}}</p>
-                                              <h5 class="card-title">{{$event->event_name}}</h5>
-                                              <p>{{$event->event_place}}</p>
-                                              <p class="card-text text-muted text-truncate"></p>
-                                              <p >
-                                                @if($event->event_fee)
-                                                    {{$event->event_fee}}
-                                                @else
-                                                    Free
-                                                @endif
-                                            </p>
-                                              <a href="{{ route('event.view')."/".$event->eventStatusEvent->event_id }}" class="btn btn-primary">View Event Details</a>
-                                            </div>
-                                          </div>
-                                  </div>
-                                @endforeach
+                            <div class="single-product-wrapper">
+                                <!-- Product Image -->
+                                <div class="product-img h-50">
+                                    <img src="img/core-img/event1.jpg" alt="">
+                                    <!-- Hover Thumb -->
+                                    <img class="hover-img" src="img/product-img/product-3.jpg" alt="">
+                                    <!-- group -->
+                                    <div class="product-group">
+                                        <a href="#" class="favme fa fa-heart"></a>
+                                    </div>
+                                </div>
+                                <!-- Product Description -->
+                                <div class="product-description">
+                                    <span>Date and Time</span>
+                                    <a href="single-product-details.html">
+                                        <h4>Title</h4>
+                                    </a>
+                                    <p class="product-venue">Venue</p>
+                                    <p class="product-price">Price</p>
+
+                                    <!-- Hover Content -->
+                                    <div class="hover-content">
+                                        <!-- Add to Cart -->
+                                        <div class="add-to-cart-btn">
+                                            <a href="#" class="btn essence-btn">View Event</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            <!-- Single Product -->
+                            <div class="single-product-wrapper">
+                                <!-- Product Image -->
+                                <div class="product-img h-50">
+                                    <img src="img/core-img/event2.jpg" alt="">
+                                    <!-- Hover Thumb -->
+                                    <img class="hover-img" src="img/product-img/product-3.jpg" alt="">
+                                    <!-- group -->
+                                    <div class="product-group">
+                                        <a href="#" class="favme fa fa-heart"></a>
+                                    </div>
+                                </div>
+                                <!-- Product Description -->
+                                <div class="product-description">
+                                    <span>Date and Time</span>
+                                    <a href="single-product-details.html">
+                                        <h4>Title</h4>
+                                    </a>
+                                    <p class="product-venue">Venue</p>
+                                    <p class="product-price">Price</p>
+
+                                    <!-- Hover Content -->
+                                    <div class="hover-content">
+                                        <!-- Add to Cart -->
+                                        <div class="add-to-cart-btn">
+                                            <a href="#" class="btn essence-btn">View Event</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="single-product-wrapper">
+                                <!-- Product Image -->
+                                <div class="product-img h-50">
+                                    <img src="img/core-img/event3.jpg" alt="">
+                                    <!-- Hover Thumb -->
+                                    <img class="hover-img" src="img/product-img/product-3.jpg" alt="">
+                                    <!-- group -->
+                                    <div class="product-group">
+                                        <a href="#" class="favme fa fa-heart"></a>
+                                    </div>
+                                </div>
+                                <!-- Product Description -->
+                                <div class="product-description">
+                                    <span>Date and Time</span>
+                                    <a href="single-product-details.html">
+                                        <h4>Title</h4>
+                                    </a>
+                                    <p class="product-venue">Venue</p>
+                                    <p class="product-price">Price</p>
+
+                                    <!-- Hover Content -->
+                                    <div class="hover-content">
+                                        <!-- Add to Cart -->
+                                        <div class="add-to-cart-btn">
+                                            <a href="#" class="btn essence-btn">View Event</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+
                         </div>
-                
+                    </div>
+                    <!-- Pagination -->
+                    <nav aria-label="navigation justify-content-between">
+                        <ul class="pagination mt-50 mb-70">
+                            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#">21</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </section>
     <!-- ##### Shop Grid Area End ##### -->
 
-    @include('layouts.footer')
 
-
-</body>
-
-</html>
+    <script type="text/javascript" src="js/meganav.js"></script>
+@endsection
