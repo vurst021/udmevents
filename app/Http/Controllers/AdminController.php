@@ -19,6 +19,7 @@ class AdminController extends Controller
     {
  		$adminType = Auth::user()->isAdmin->admin_positionID;
         $eventRequests = EventStatus::all()->where('admin_ID',$adminType)->where('event_status_status',"p");
+<<<<<<< HEAD
 
         return view('admin.event-requests',['events' => $eventRequests ]);
 
@@ -49,6 +50,10 @@ class AdminController extends Controller
         $eventRequests = EventStatus::all()->where('admin_ID',$adminType)->where('event_status_status',"r");
 
         return view('admin.event-rejected',['events' => $eventRequests ]);
+=======
+
+        return view('admin.event-requests',['events' => $eventRequests ]);
+>>>>>>> parent of ff4b5b3... octber 14 2018 leo
 
     }
 

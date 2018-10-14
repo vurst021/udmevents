@@ -73,11 +73,14 @@ Route::group(['middleware' => ['auth']], function(){
 <<<<<<< HEAD
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		Route::get('/sortby/{col}', 'EventController@catSearch')->name('event.catSearch');
 
 =======
 		// admin middleware
 >>>>>>> 66840830348baf7099e6d6e45f23922f9c8d2a0f
+=======
+>>>>>>> parent of ff4b5b3... octber 14 2018 leo
 =======
 >>>>>>> parent of ff4b5b3... octber 14 2018 leo
 		Route::group(['middleware' => ['adminAuth']], function(){
@@ -88,6 +91,7 @@ Route::group(['middleware' => ['auth']], function(){
 
 			Route::get('admin/event-requests', 'AdminController@eventRequests')->name('event.requests');
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 			Route::get('admin/org-requests', 'AdminController@orgRequests')->name('org.requests');
@@ -96,6 +100,8 @@ Route::group(['middleware' => ['auth']], function(){
 
 			Route::get('admin/event-rejects', 'AdminController@rejectedEvents')->name('event.rejected');
 >>>>>>> 66840830348baf7099e6d6e45f23922f9c8d2a0f
+=======
+>>>>>>> parent of ff4b5b3... octber 14 2018 leo
 =======
 >>>>>>> parent of ff4b5b3... octber 14 2018 leo
 			
