@@ -29,10 +29,13 @@ Route::get('/join',function(){
 Route::group(['middleware' => ['web']], function(){
 
 	Route::get('/', 'EventController@index')->name('index');
-			Route::post('/event-store', 'EventController@store')->name('event.store');
+	Route::post('/event-store', 'EventController@store')->name('event.store');
 			
 	// Route::get('/', 'EventController@index')->name('home');
-Route::get('/logout', 'Auth\LoginController@logout');
+	Route::get('/logout', 'Auth\LoginController@logout');
+
+	Route::get('/verifyemail/{userEncEmail?}', 'UserController@userVerify')->name('userVerify');
+
 	Auth::routes(['verify' => true]);
 
 	Route::get('/event-create', 'EventController@create')->name('event.create');
@@ -40,7 +43,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 	Route::get('/join-event/{userID?}', 'EventController@join')->name('event.join');
 
 	Route::get('/requests', 'AdminController@joinEventRequest')->name('join.request');
-
+//gives access to users
 Route::group(['middleware' => ['auth']], function(){
 	Route::group(['middleware' => ['verified']], function(){
 
@@ -67,7 +70,7 @@ Route::group(['middleware' => ['auth']], function(){
 		Route::get('/organization/{org}','OrganizationController@show')->name('organization.show');
 
 		Route::get('/events', 'EventController@show')->name('events');
-
+		// admin middleware
 		Route::group(['middleware' => ['adminAuth']], function(){
 
 			Route::get('admin/event-accept/{eventID?}', 'AdminController@acceptEventRequest')->name('event.accept');
@@ -75,6 +78,10 @@ Route::group(['middleware' => ['auth']], function(){
 			Route::get('admin/event-reject/{eventID?}', 'AdminController@rejectEventRequest')->name('event.reject');
 
 			Route::get('admin/event-requests', 'AdminController@eventRequests')->name('event.requests');
+
+			Route::get('admin/event-accepted', 'AdminController@acceptedEvents')->name('event.accepted');
+
+			Route::get('admin/event-rejects', 'AdminController@rejectedEvents')->name('event.rejected');
 			
 
 		});
