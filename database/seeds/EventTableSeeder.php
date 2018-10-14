@@ -20,13 +20,12 @@ class EventTableSeeder extends Seeder
       $event->event_date_end = date("Y-m-d");
       $event->event_time_start = date("H:i:s");
       $event->event_time_end = date("H:i:s");
-      $event->event_orgID = 2;
       $event->event_fee = 14;
       $event->save();
       
       $eventStatus = new EventStatus();
       $eventStatus->admin_id = 1;
-      $eventStatus->event_status_status = "a";
+      $eventStatus->event_status_status = "p";
       $event->eventStatus()->save($eventStatus);
 
 
@@ -37,7 +36,6 @@ class EventTableSeeder extends Seeder
       $event->event_date_end = date("Y-m-d");
       $event->event_time_start = date("H:i:s");
       $event->event_time_end = date("H:i:s");
-      $event->event_orgID = 1;
       $event->event_fee = 14;
       $event->save();
 

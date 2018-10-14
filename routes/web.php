@@ -22,7 +22,9 @@
 |
 */
 
-
+Route::get('/join',function(){
+	return Auth::user()->join();
+});
 
 Route::group(['middleware' => ['web']], function(){
 
@@ -37,8 +39,6 @@ Route::group(['middleware' => ['web']], function(){
 	Auth::routes(['verify' => true]);
 
 	Route::get('/event-create', 'EventController@create')->name('event.create');
-
-	Route::get('/org-create', 'OrganizationController@create')->name('org.create');
 
 	Route::get('/join-event/{userID?}', 'EventController@join')->name('event.join');
 
@@ -65,22 +65,21 @@ Route::group(['middleware' => ['auth']], function(){
 
 		Route::get('/single-event/{eventID?}', 'EventController@viewEvent')->name('event.view');
 
-
-
 		Route::get('/organization','OrganizationController@index')->name('organization');
 
 		Route::get('/organization/{org}','OrganizationController@show')->name('organization.show');
 
-		Route::get('/organization/sortby/{col}', 'OrganizationController@proCol')->name('organization.proCol');
-
 		Route::get('/events', 'EventController@show')->name('events');
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 		Route::get('/sortby/{col}', 'EventController@catSearch')->name('event.catSearch');
 
 =======
 		// admin middleware
 >>>>>>> 66840830348baf7099e6d6e45f23922f9c8d2a0f
+=======
+>>>>>>> parent of ff4b5b3... octber 14 2018 leo
 		Route::group(['middleware' => ['adminAuth']], function(){
 
 			Route::get('admin/event-accept/{eventID?}', 'AdminController@acceptEventRequest')->name('event.accept');
@@ -88,6 +87,7 @@ Route::group(['middleware' => ['auth']], function(){
 			Route::get('admin/event-reject/{eventID?}', 'AdminController@rejectEventRequest')->name('event.reject');
 
 			Route::get('admin/event-requests', 'AdminController@eventRequests')->name('event.requests');
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 			Route::get('admin/org-requests', 'AdminController@orgRequests')->name('org.requests');
@@ -96,6 +96,8 @@ Route::group(['middleware' => ['auth']], function(){
 
 			Route::get('admin/event-rejects', 'AdminController@rejectedEvents')->name('event.rejected');
 >>>>>>> 66840830348baf7099e6d6e45f23922f9c8d2a0f
+=======
+>>>>>>> parent of ff4b5b3... octber 14 2018 leo
 			
 
 		});

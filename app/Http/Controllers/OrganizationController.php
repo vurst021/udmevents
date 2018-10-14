@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Organization;
-use App\College;
 use Illuminate\Http\Request;
 
 class OrganizationController extends Controller
@@ -15,39 +14,10 @@ class OrganizationController extends Controller
      */
     public function index()
     {
-            $colleges = College::all();
-            $organization = Organization::inRandomOrder()->take(20)->get();
         
-        
-        return view('organization.organization')->with([
-                    'organization' => $organization,
-                    'colleges' => $colleges,
-            ]);
-    }
+         $organization = Organization::inRandomOrder()->take(20)->get();
 
-    public function proCol($col_id)
-    {
-
-        if($col_id){
-
-
-            $organization = Organization::where('org_colID', $col_id)->get();
-            
-
-            $colleges = College::all();  
-
-        }else{
-            
-            $colleges = College::all();
-            $organization = Organization::inRandomOrder()->take(20)->get();
-        
-        }
-        
-        return view('organization.organization')->with([
-                    'organization' => $organization,
-                    'colleges' => $colleges,
-            ]);
-               
+         return view('org')->with('organization', $organization);
     }
 
     /**
@@ -57,8 +27,7 @@ class OrganizationController extends Controller
      */
     public function create()
     {
-        $colleges = College::all();
-        return view('organization.org-create')->with('colleges', $colleges);
+        //
     }
 
     /**
@@ -70,28 +39,6 @@ class OrganizationController extends Controller
     public function store(Request $request)
     {
         //
-        $validator = Validator::make($request->all(), [
-           'org_name' => 'required',
-           'org_description' => 'required',
-           'org_slug' => 'required',
-           'org_colID' => 'required',
-           
-        ]);
-
-        if($validator->fails())
-        {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-        $organization = new Organzation();
-        $organization->org_name = $request->input('org_name');
-        $organization->org_description = $request->input('org_description');
-        $organization->org_abbreviation = $request->input('org_slug');
-        $organization->org_colID = $request->input('org_colID');
-        $organization->org_status = "pending";
-        $organization->save();
-        
-        return view('organization.organization-create');
     }
 
     /**
@@ -103,7 +50,7 @@ class OrganizationController extends Controller
     public function show($org_slug)
     {
         $organization = Organization::where('org_slug', $org_slug)->firstOrFail();
-         return view('organization.single-org')->with('organization', $organization);
+         return view('organization')->with('organization', $organization);
     }
 
     /**
