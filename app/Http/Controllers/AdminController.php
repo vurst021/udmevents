@@ -19,23 +19,16 @@ class AdminController extends Controller
     {
  		$adminType = Auth::user()->isAdmin->admin_positionID;
         $eventRequests = EventStatus::all()->where('admin_ID',$adminType)->where('event_status_status',"p");
+<<<<<<< HEAD
 
         return view('admin.event-requests',['events' => $eventRequests ]);
 
     }
+=======
+>>>>>>> parent of ff4b5b3... octber 14 2018 leo
 
-     //
-    /**
-     * Show the org requests.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function orgRequests()
-    {
-        $adminType = Auth::user()->isAdmin->admin_positionID;
-        $orgRequests = Organization::all()->where('org_status', "p");
+        return view('admin.event-requests',['events' => $eventRequests ]);
 
-        return view('admin.org-requests' , ['organization' => $orgRequests ]);
     }
 
     /**
@@ -119,8 +112,6 @@ class AdminController extends Controller
         return redirect()->back();
 
     }
-
-    
 
 
 }
