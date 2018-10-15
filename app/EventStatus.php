@@ -29,7 +29,7 @@ class EventStatus extends Model
     }
     public function eventStatusAdmin(){
 
-    	return $this->belongsTo('App\Admin');
+    	return $this->belongsTo('App\Admin','admin_ID','admin_id');
 
     }
 }

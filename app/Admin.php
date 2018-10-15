@@ -23,11 +23,16 @@ class Admin extends Model
     protected $fillable = [
         'user_ID', 'admin_positionID'
     ];
+
     public function admins(){
     	return $this->belongsTo('App\User', 'user_ID', 'user_id');
     }
 
     public function adminPosition(){
-    	return $this->hasOne('App\AdminPositions');
+    	return $this->hasOne('App\AdminPosition','position_id', 'admin_positionID');
+    }
+
+    public function eventStatus(){
+        return $this->hasOne('App\EventStatus','admin_ID','admin_id' );
     }
 }

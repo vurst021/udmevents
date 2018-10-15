@@ -36,7 +36,7 @@
                     <thead>
                       <tr>
                         <td>Event Name</td>
-                        <td>Date Accepted</td>
+                        <td>Date Rejected</td>
                       </tr>
                     </thead>
                     @foreach($events as $event)

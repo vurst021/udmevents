@@ -23,6 +23,6 @@ class AdminPosition extends Model
         'position_name'
     ];
     public function adminPosition(){
-    	return $this->belongsTo('App\Admin');
+    	return $this->belongsTo('App\Admin','position_id', 'admin_positionID');
     }
 }

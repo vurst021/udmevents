@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('content')
+@section('header')
     <!-- ##### Breadcumb Area Start ##### -->
     <div class="breadcumb_area bg-img" style="background-image: url('{{URL::asset('img/bg-img/breadcumb.jpg')}}');">
         <div class="container h-100">
@@ -14,7 +14,8 @@
         </div>
     </div>
     <!-- ##### Breadcumb Area End ##### -->
-
+@endsection
+@section('content')
     <!-- ##### New Arrivals Area Start ##### -->
     <section class="new_arrivals_area  clearfix">
         <div class="container">
@@ -33,19 +34,24 @@
                   <table class="table ">
                     <thead>
                       <tr>
-                        <td class="col-sm-7">Event Name</td>
-                        <td class="col-sm-2">Date Rejected</td>
-                        <td class="col-sm-3">Action</td>
+                        <td class="col-sm-5">Event Name</td>
+                        <td class="col-sm-2">Date Created</td>
+                        <td class="col-sm-5">Action</td>
                       </tr>
                     </thead>
+                    <tbody>
                     @foreach($events as $event)
                       <tr>
-                        <td>{{$event->eventStatusEvent->event_name}} </td>
+                        <td><a href="{{ route('event.manage') }}/{{$event->event_id}}">{{$event->event_name}}</a> </td>
                         <td>{{date("Y-m-d", strtotime($event->created_at))}} </td>
                         <td>View Status </td>
                       </tr>
                     @endforeach
+                    </tbody>
                   </table>
+              </div>
+          </div>
+      </div>
     </section>
     <!-- ##### Shop Grid Area End ##### -->
 

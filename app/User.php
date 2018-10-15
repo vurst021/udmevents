@@ -44,4 +44,16 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne('App\Admin', 'user_ID', 'user_id');
 
     }
+
+    public function orgHead(){
+
+        return $this->hasOne('App\Organization', 'org_head_userID', 'user_id');
+
+    }
+
+    public function attendee(){
+
+        return $this->hasOne('App\Attendee', 'userID', 'user_id');
+
+    }
 }
