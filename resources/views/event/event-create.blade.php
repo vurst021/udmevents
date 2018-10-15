@@ -1,4 +1,5 @@
-@extends('main')@section('content')
+@extends('main')
+@section('content')
 <div class="container section-padding-80">
     <div class="row justify-content-center">
         <div class="col-md-12 ">

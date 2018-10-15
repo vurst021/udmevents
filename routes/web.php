@@ -75,18 +75,18 @@ Route::group(['middleware' => ['auth']], function(){
 
 		// orgHead middleware
 		Route::group(['middleware' => ['orgHeadAuth']], function(){
+			Route::get('orgHead/manage-events', 'OrgHeadController@manageEvents')->name('events.manage');
+			Route::get('orgHead/manage-event/{eventID?}', 'OrgHeadController@manageEvent')->name('event.manage');
+			Route::get('orgHead/attendees-pending/{eventID?}','OrgHeadController@attendeesPending')->name('event.attendees.pending');
+			Route::get('orgHead/attendee-status/{eventID?}/{userID?}/', 'OrgHeadController@respondAttendee')->name('attendee.respond');
+			Route::get('/orgHead/attendee/{eventID?}/', 'OrgHeadController@attendeesResponded')->name('attendees.responded');
 
 		});
 
-		Route::get('orgHead/manage-events', 'OrgHeadController@manageEvents')->name('events.manage');
-		Route::get('orgHead/manage-event/{eventID?}', 'OrgHeadController@manageEvent')->name('event.manage');
-		Route::get('orgHead/attendees-pending/{eventID?}','OrgHeadController@attendeesPending')->name('event.attendees.pending');
-		Route::get('orgHead/attendee-status/{eventID?}/{userID?}/', 'OrgHeadController@respondAttendee')->name('attendee.respond');
-		Route::get('/orgHead/attendee/{eventID?}/', 'OrgHeadController@attendeesResponded')->name('attendees.responded');
-
+		
 		// admin middleware
 
-\
+
 		Route::group(['middleware' => ['adminAuth']], function(){
 
 			Route::get('admin/event-accept/{eventID?}', 'AdminController@acceptEventRequest')->name('event.accept');

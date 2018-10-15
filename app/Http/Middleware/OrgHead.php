@@ -16,7 +16,7 @@ class OrgHead
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->user_type != "s") {
+        if (!Auth::user()->orgHead) {
             return redirect('/');
         }
         return $next($request);

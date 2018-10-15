@@ -1,6 +1,7 @@
 <?php
 
 use App\EventType;
+use App\AttendeesStatus;
 use Illuminate\Database\Seeder;
 
 class EventTypeTableSeeder extends Seeder
@@ -12,6 +13,12 @@ class EventTypeTableSeeder extends Seeder
      */
     public function run()
     {
+    	AttendeesStatus::create([
+    		'att_status_description'=> 'Accepted'
+    	]);
+    	AttendeesStatus::create([
+    		'att_status_description'=> 'Rejected'
+    	]);
         EventType::create([
         	'event_type_name' => 'Seminar',
         	'event_type_description' => 'Talk with Speakers '

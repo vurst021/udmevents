@@ -51,7 +51,7 @@ anti-transparent-nav
 
 
              @else
-            <div class="container col-sm-12 col-lg-5 offset-lg-1">
+            <div class="container col-sm-12 col-lg-5 offset-lg-2">
                 <div class="navbarRight row col-12 col-xs-12">
                     <div class="group-area col-sm-3 col-xs-3">
                         <a href="{{ route('events')}}">Events</a>
@@ -60,24 +60,30 @@ anti-transparent-nav
                     <div class="cart-area col-sm-3 col-xs-3">
                         <a href="{{ route('organization')}}" >Org</a>
                     </div>
-                    @if(Auth::user()->user_type == "g")
+{{--                     @if(Auth::user()->user_type == "g")
                     <div class="group-area col-sm-3 col-xs-3">
                         <a href="{{ route('event.create')}}">Request&nbsp;&nbsp;Event</a>
                     </div>
-                    @endif
-                    @if(Auth::user()->user_type == "a")
+                    @endif --}}
+{{--                     @if(Auth::user()->user_type == "a")
                         <div class="user-login-info col-sm-3 col-xs-3">
-                            <a href="{{ route('event.requests') }}">Requests{{-- <span>3</span> --}}</a>
+                            <a href="{{ route('event.requests') }}">Requests --}}{{-- <span>3</span> --}}{{-- </a>
                         </div>
-                    @endif
+                    @endif --}}
                     <div class="user-login-info col-sm-3 col-xs-3 dropdown">
                         <a href="" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->user_fname }}</a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="">
                             
                             <a href="{{ url('/profile')}}/{{Auth::user()->user_slug }}">My Profile</a>
-                            @if(Auth::user()->user_type == "a")
+                            @if(Auth::user()->orgHead)
                             <a href="{{ route('event.create')}}">Create Event</a>
+                            @endif
+                            @if(Auth::user()->orgHead)
+                                <a href="{{ route('events.manage') }}">Manage Events{{-- <span>3</span> --}}</a>
+                            @endif
+                            @if(Auth::user()->user_type == "a")
+                                <a href="{{ route('event.requests') }}">Event Requests{{-- <span>3</span> --}}</a>
                             @endif
 
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
