@@ -34,9 +34,13 @@ class Event extends Model
     ];
 
     public function eventVenue(){
-        return $this->hasOne('App\Admin');
+        return $this->hasOne('App\Venue');
     }
     public function eventStatus(){
         return $this->hasMany('App\EventStatus', 'event_id');
+    }
+
+    public function eventOrg(){
+        return $this->hasOne('App\Organization', 'event_orgID', 'org_id');
     }
 }
