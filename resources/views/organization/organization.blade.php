@@ -78,6 +78,8 @@
                 <!-- Organization View-->
                 <div class="row event-page col-8">   
 
+
+                  
                       @foreach ($organization as $org)
                       <!--Profile Card 5-->
                       <div class="col-md-4 mt-5" style="font-family: Copperplate Gothic;">

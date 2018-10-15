@@ -17,9 +17,9 @@ class EventTableSeeder extends Seeder
       $event->event_name = "UDM event Sample 1";
       $event->event_description = "This is an Event";
       $event->event_date_start = date("Y-m-d");
-      $event->event_date_end = date("Y-m-d");
+      // $event->event_date_end = date("Y-m-d");
       $event->event_time_start = date("H:i:s");
-      $event->event_time_end = date("H:i:s");
+      // $event->event_time_end = date("H:i:s");
       $event->event_fee = 14;
       $event->save();
       
@@ -33,9 +33,9 @@ class EventTableSeeder extends Seeder
       $event->event_name = "UDM event Sample 2";
       $event->event_description = "This is an Event";
       $event->event_date_start = date("Y-m-d");
-      $event->event_date_end = date("Y-m-d");
+      // $event->event_date_end = date("Y-m-d");
       $event->event_time_start = date("H:i:s");
-      $event->event_time_end = date("H:i:s");
+      // $event->event_time_end = date("H:i:s");
       $event->event_fee = 14;
       $event->save();
 

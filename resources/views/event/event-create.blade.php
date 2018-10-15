@@ -4,6 +4,18 @@
         <div class="col-md-12 ">
             <div class="card">
               <div class="card-header"> Request an event</div>
+                @if(session()->has('success_message'))
+                    <div class="alert alert-success">
+                        <h2>{{ session()->get('success_message')}}</h2>
+                    </div>
+                @elseif(session()->has('danger_message'))
+                    <div class="alert alert-danger">
+                        <h3>`{{ session()->get('danger_message')}}</h3>
+                    </div>
+                @endif
+
+                
+            
               <div class="card-body">
                 <form action="{{route('event.store')}}" method="post" id="locationForm">
                     {{ csrf_field() }}
@@ -44,28 +56,38 @@
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label for="title">Event type</label>
-                                        <select name="type" id="title" class="form-control" placeholder="Enter the event">
-                                            <option>Seminar</option>
-                                            <option>Entertainment</option>
-                                            <option>Sport</option>
+                                        <select name="type" id="eventType" class="form-control" placeholder="Enter the event">
+                                            
+                                            @foreach($eventTypes as $evtType)
+                                            <option value="{{ $evtType->event_type_id }}">{{ $evtType->event_type_name }}</option>
+                                            @endforeach
+                                            
                                         </select>
-                                        <span class="error">{{$errors->first('title')}}</span>
+                                        <span class="error">{{$errors->first('eventType')}}</span>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="title">End date and time</label>
-                                        <input type="datetime-local" name="end_date_time" id="end_date" class="form-control"
-                                               placeholder="Enter the event end date">
-                                        <span class="error">{{$errors->first('end_date')}}</span>
+                                        <label for="title">Organization</label>
+                                        <select name="organization" id="organizer" class="form-control" placeholder="Event Organizer">
+                                            
+                                            @foreach($organizations as $org)
+                                            <option value="{{ $org->org_id }}">{{ $org->org_name }}</option>
+                                            @endforeach
+
+
+                                        </select>    
+                                        <span class="error">{{$errors->first('organizer')}}</span>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="title">Event place</label>
                                         <select name="place" id="title" class="form-control" placeholder="Enter the event">
-                                            <option value="ph">Palma Hall</option>
-                                            <option value="c">Court</option>
-                                            <option value="l">Lobby</option>
-                                            <option value="nb">New building multi purpose hall</option>
+                                            
+                                            @foreach ($venues as $venue)
+                                            <option value="{{ $venue->venue_id }}" >{{ $venue->venue_name }}</option>
+                                            @endforeach
+                                            
+
                                         </select>
                                         <span class="error">{{$errors->first('title')}}</span>
                                     </div>
@@ -88,6 +110,9 @@
                     </div>
                 </form>
               </div>
+              
+
+
             </div>
         </div>
     </div>

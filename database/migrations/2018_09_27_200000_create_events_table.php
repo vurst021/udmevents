@@ -21,7 +21,7 @@ class CreateEventsTable extends Migration
             $table->integer('event_orgID')->unsigned()->nullable();
 
             $table->dateTime('event_date_start');
-            $table->dateTime('event_date_end');
+            // $table->dateTime('event_date_end');
             $table->time('event_time_start');
             $table->time('event_time_end');
 
