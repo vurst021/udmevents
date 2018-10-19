@@ -432,7 +432,7 @@ img {
           font-size: 20px; } }
   .header_area.sticky {
     position: fixed;
-    z-index: 900;
+    z-index: 38;
     top: 0;
     left: 0;
     width: 100%;

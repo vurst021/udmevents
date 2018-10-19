@@ -23,12 +23,12 @@ class CreateEventsTable extends Migration
             $table->dateTime('event_date_start');
             // $table->dateTime('event_date_end');
             $table->time('event_time_start');
-            $table->time('event_time_end');
+            // $table->time('event_time_end');
 
             $table->integer('event_venueID')->unsigned()->nullable();
 
             $table->integer('event_typeID')->unsigned()->nullable();
-            
+            $table->string('event_img')->nullable();
             $table->integer('event_fee');
 
             $table->timestamps();

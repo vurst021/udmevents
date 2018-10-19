@@ -42,7 +42,7 @@
                         <div class="single-product-wrapper">
                             <!-- Product Image -->
                             <div class="product-img h-50">
-                                <img src="img/core-img/event1.jpg" alt="">
+                                <img src="{{URL::asset('img/core-img/')}}/event1.jpg" alt="">
                                 <!-- Hover Thumb -->
                                 <img class="hover-img" src="img/product-img/product-2.jpg" alt="">
                                 <!-- group -->
@@ -52,14 +52,14 @@
                             </div>
                             <!-- Product Description -->
                             <div class="product-description">
-                                <span>{{$event->eventStatusEvent->event_date_start}}</span>
+                                <span>{{date("F d Y",strtotime($event->eventStatusEvent->event_date_start))}}</span>
                                 <a href="single-product-details.html">
                                     <h4>{{$event->eventStatusEvent->event_name}}</h4>
                                 </a>
                                 <p class="product-venue">{{$event->eventStatusEvent->event_place}}</p>
                                 <p class="product-price">
-                                    @if($event->eventStatusEvent->event_fee)
-                                        {{$event->eventStatusEvent->event_fee}}
+                                    @if($event->eventStatusEvent->event_fee > 0)
+                                        {{$event->eventStatusEvent->event_fee}} php.
                                     @else
                                         Free
                                     @endif

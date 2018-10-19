@@ -40,6 +40,8 @@ Route::group(['middleware' => ['web']], function(){
 
 	Route::get('/event-create', 'EventController@create')->name('event.create');
 
+	Route::get('/org-create', 'OrganizationController@create')->name('org.create');
+
 	Route::get('/join-event/{userID?}', 'EventController@join')->name('event.join');
 
 	Route::get('/requests', 'AdminController@joinEventRequest')->name('join.request');
@@ -65,13 +67,17 @@ Route::group(['middleware' => ['auth']], function(){
 
 		Route::get('/single-event/{eventID?}', 'EventController@viewEvent')->name('event.view');
 
-		Route::get('/organization','OrganizationController@index')->name('organization');
+		Route::get('/organizations/','OrganizationController@index')->name('organization');
 
-		Route::get('/organization/{org}','OrganizationController@show')->name('organization.show');
+		Route::get('/organization/{org_slug?}','OrganizationController@show')->name('organization.show');
 
 		Route::get('/events', 'EventController@show')->name('events');
 
 		Route::get('/sortby/{col}', 'EventController@catSearch')->name('event.catSearch');
+
+		//payment
+		Route::post('/pay/paypal', 'PaymentController@postPaymentWithPaypal')->name('payment.paypal');
+		Route::get('/pay/paypal', 'PaymentController@getPaymentStatus')->name('payment.paypal.status');
 
 		// orgHead middleware
 		Route::group(['middleware' => ['orgHeadAuth']], function(){
@@ -83,10 +89,20 @@ Route::group(['middleware' => ['auth']], function(){
 
 		});
 
-		
+		//dean middleware
+		Route::group(['middleware' => ['deanAuth']], function(){
+			Route::prefix('dean')->group(function(){
+
+				Route::get('/organizations/', 'DeanController@showOrganizations')->name('dean.organizations');
+
+				Route::get('/organization/{orgID?}/', 'DeanController@showUsers')->name('dean.organization.edit');
+				Route::get('/organization/sortby/{col}', 'OrganizationController@proCol')->name('organization.proCol');
+
+				Route::get('/organization-make-orgHead/{orgId?}/{userID?}', 'DeanController@makeOrgHead')->name('dean.organization.makeOrgHead');
+
+			});
+		});
 		// admin middleware
-
-
 		Route::group(['middleware' => ['adminAuth']], function(){
 
 			Route::get('admin/event-accept/{eventID?}', 'AdminController@acceptEventRequest')->name('event.accept');

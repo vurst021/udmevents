@@ -67,18 +67,6 @@
                                         <span class="error">{{$errors->first('eventType')}}</span>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="title">Organization</label>
-                                        <select name="organization" id="organizer" class="form-control" placeholder="Event Organizer">
-                                            
-                                            @foreach($organizations as $org)
-                                            <option value="{{ $org->org_id }}">{{ $org->org_name }}</option>
-                                            @endforeach
-
-
-                                        </select>    
-                                        <span class="error">{{$errors->first('organizer')}}</span>
-                                    </div>
 
                                     <div class="form-group">
                                         <label for="title">Event place</label>
@@ -93,11 +81,19 @@
                                         <span class="error">{{$errors->first('title')}}</span>
                                     </div>
 
+                                    {{-- <div class="form-group">
+                                        <label for="img">Event Image</label>
+                                        <input type="file" name="img" id="img" class="form-control" placeholder="Enter the event">
+                                        <span class="error">{{$errors->first('img')}}</span>
+                                    </div> --}}
+
                                     <div class="form-group">
                                         <label for="title">Event fee</label>
                                         <input type="number" name="fee" id="title" class="form-control" placeholder="Enter the event">
                                         <span class="error">{{$errors->first('title')}}</span>
                                     </div>
+
+
 
                                     <div class="col-md-4 offset-md-8">
                                         <button type="submit" class="btn btn-primary">

@@ -85,7 +85,9 @@ anti-transparent-nav
                             @if(Auth::user()->user_type == "a")
                                 <a href="{{ route('event.requests') }}">Event Requests{{-- <span>3</span> --}}</a>
                             @endif
-
+                            @if(Auth::user()->isAdmin&&Auth::user()->isAdmin->admin_positionID == 1)
+                                <a href="{{ route('dean.organizations') }}">Manage OrgHeads{{-- <span>3</span> --}}</a>
+                            @endif
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form).submit();">{{ __('Logout')}}
                             </a>

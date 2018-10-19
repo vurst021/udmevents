@@ -85,7 +85,7 @@ class RegisterController extends Controller
             'user_lname' => ucwords($data['lname']),
             'user_gender' => $data['gender'],
             'user_contact' => ucwords($data['contact']),
-            'email' => ucwords($data['email']),
+            'email' => $data['email'],
             'user_type' => ucwords('g'),
             'user_slug' => str_before($data['email'], '@'),
             'user_pic' => $pic_path,

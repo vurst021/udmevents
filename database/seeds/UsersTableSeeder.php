@@ -48,7 +48,7 @@ class UsersTableSeeder extends Seeder
         $user->save();
 
         $user = new User();
-        $user->user_fname = "Prince Charles";
+        $user->user_fname = "Dean";
         $user->user_mname = "Baluis";
         $user->user_lname = "Vergara";
         $user->user_gender = "m";
@@ -66,7 +66,7 @@ class UsersTableSeeder extends Seeder
 
 
         $user = new User();
-        $user->user_fname = "Prince Charles";
+        $user->user_fname = "OSA Charles";
         $user->user_mname = "Baluis";
         $user->user_lname = "Vergara";
         $user->user_gender = "m";
@@ -83,7 +83,7 @@ class UsersTableSeeder extends Seeder
         $user->isAdmin()->save($admin);
 
         $user = new User();
-        $user->user_fname = "Prince Charles";
+        $user->user_fname = "VPAA Charles";
         $user->user_mname = "Baluis";
         $user->user_lname = "Vergara";
         $user->user_gender = "m";
@@ -100,7 +100,7 @@ class UsersTableSeeder extends Seeder
         $user->isAdmin()->save($admin);
 
         $user = new User();
-        $user->user_fname = "Prince Charles";
+        $user->user_fname = "VPAF";
         $user->user_mname = "Baluis";
         $user->user_lname = "Vergara";
         $user->user_gender = "m";
@@ -117,7 +117,7 @@ class UsersTableSeeder extends Seeder
         $user->isAdmin()->save($admin);
 
         $user = new User();
-        $user->user_fname = "Prince Charles";
+        $user->user_fname = "President";
         $user->user_mname = "Baluis";
         $user->user_lname = "Vergara";
         $user->user_gender = "m";

@@ -21,7 +21,7 @@ class Event extends Model
      * @var array
      */
     protected $fillable = [
-        'event_name', 'event_description', 'event_orgID', 'event_date_time_start', 'event_date_time_end', 'event_typeID', 'event_fee', 'event_status', 'event_place'
+        'event_name', 'event_description', 'event_orgID', 'event_date_time_start', 'event_typeID', 'event_fee', 'event_status', 'event_place'
     ];
 
     /**
@@ -43,4 +43,10 @@ class Event extends Model
     public function eventOrg(){
         return $this->hasOne('App\Organization', 'event_orgID', 'org_id');
     }
+
+    public function transaction(){
+
+        return $this->hasMany('App\Transaction','trans_eventID','event_id');
+    }
+
 }

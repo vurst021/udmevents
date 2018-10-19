@@ -12,6 +12,7 @@ use App\College;
 use App\Organization;
 use App\EventType;
 use App\Venue;
+use App\Transaction;
 
 class EventController extends Controller
 {
@@ -56,9 +57,7 @@ class EventController extends Controller
            'description' => 'required',
            'start_date_time' => 'required',
            // 'end_date_time' => 'required',
-           'fee' => 'required',
            'type' => 'required',
-           'organization' => 'required',
            'place' => 'required',
         ]);
 
@@ -67,16 +66,18 @@ class EventController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        $orgID = Auth::user()->orgHead->org_id;
+
         $event = new Event();
         $event->event_name = $request->input('title');
         $event->event_description = $request->input('description');
-        $event->event_date_start = date("Y-m-d");
+        $event->event_date_start = date("Y-m-d H:i:s",strtotime($request->input('start_date_time')));
         // $event->event_date_end = date("Y-m-d");
-        $event->event_time_start = date("H:i:s");
+        $event->event_time_start = date("Y-m-d H:i:s",strtotime($request->input('start_date_time')));
         $event->event_typeID = $request->input('type');
-        $event->event_orgID = $request->input('organization');
         $event->event_venueID = $request->input('place');
         // $event->event_time_end = date("H:i:s");
+        $event->event_orgID = $orgID;
         $event->event_fee = $request->input('fee');
         $event->save();
 
@@ -146,10 +147,13 @@ class EventController extends Controller
      */
     public function viewEvent($eventID)
     {
+        $userID = Auth::user()->user_id;
         $event = Event::where('event_id',$eventID)->first();
+        $attendee = Transaction::where('trans_userID', $userID)->where('trans_eventID', $eventID)->first();
+        $attendeeStatus = Attendee::where('userID', $userID)->where('event_ID', $eventID)->first();
 
 
-        return view('event.single-event', ['event' => $event ]);
+        return view('event.single-event', ['event' => $event, 'attendee' => $attendee, 'attendeeStatus' => $attendeeStatus ]);
 
     }
 

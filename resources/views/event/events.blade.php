@@ -66,14 +66,14 @@
     <!-- ##### Shop Grid Area Start ##### -->
     <section class="shop_grid_area section-padding-80">
         <div class="container-fluid">
-          <div class="container col-8 align-self-end sticky-top" style="background-color: #c6e2ff">
+{{--           <div class="container col-8 align-self-end sticky-top" style="background-color: #c6e2ff;z-index: 14;">
             <div class="">
               <h1>Events</h1>
             </div>
-          </div>
+          </div> --}}
             <div class="row">
-                <div class="col-4 side-bar" >
-                  <h2 style="font-family: Copperplate Gothic;margin-bottom:30px;">By Colleges</h2>
+                <div class="col-4 side-bar card" >
+                  <h2 style="font-family: Copperplate Gothic;margin-bottom:30px;">By Organizations</h2>
                   <ul>
                     
                     @foreach ($organizations as $org)

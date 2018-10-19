@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Event;
 use App\EventStatus;
+use App\PaymentMethod;
 
 class EventTableSeeder extends Seeder
 {
@@ -13,6 +14,14 @@ class EventTableSeeder extends Seeder
      */
     public function run()
     {
+      $paymentMethod = new PaymentMethod();
+      $paymentMethod->payment_method_name = "Walk in - Payed";
+      $paymentMethod->save();
+
+      $paymentMethod = new PaymentMethod();
+      $paymentMethod->payment_method_name = "Paypal - Payed";
+      $paymentMethod->save();
+
       $event = new Event();
       $event->event_name = "UDM event Sample 1";
       $event->event_description = "This is an Event";
@@ -20,6 +29,7 @@ class EventTableSeeder extends Seeder
       // $event->event_date_end = date("Y-m-d");
       $event->event_time_start = date("H:i:s");
       // $event->event_time_end = date("H:i:s");
+      $event->event_img = "event1.jpg";
       $event->event_fee = 14;
       $event->save();
       
@@ -37,6 +47,7 @@ class EventTableSeeder extends Seeder
       $event->event_time_start = date("H:i:s");
       // $event->event_time_end = date("H:i:s");
       $event->event_fee = 14;
+      $event->event_img = "event1.jpg";
       $event->save();
 
       $eventStatus = new EventStatus();

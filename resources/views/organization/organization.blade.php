@@ -65,12 +65,12 @@
     <section class="shop_grid_area section-padding-80">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-4 side-bar" >
+                <div class="col-4 card side-bar" >
                   <h2 style="font-family: Copperplate Gothic;margin-bottom:30px;">By Colleges</h2>
                   <ul>
                     
                     @foreach ($colleges as $col)
-                      <li style="margin-bottom: 20px;" ><a href="{{route('organization.proCol', $col->col_id )}}">{{ $col->col_name}}</a></li>
+                      <li style="margin-bottom: 20px;" ><a href="{{route('organization.proCol', $col->col_id )}}">{{ $col->col_name }}</a></li>
                     @endforeach
                   </ul>
                 </div>

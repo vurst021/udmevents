@@ -10,7 +10,8 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   
+        $this->call(CollegeTableSeeder::class);
         $this->call(VenueTableSeeder::class);
         $this->call(EventTypeTableSeeder::class);
         $this->call(OrganizationTableSeeder::class);

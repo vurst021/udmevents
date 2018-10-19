@@ -45,6 +45,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     }
 
+    // gives full name
+    public function niceName(){
+        $name = $this->user_fname ." ". $this->user_mname ." ". $this->user_lname;
+        return $name;
+    }
+
     public function orgHead(){
 
         return $this->hasOne('App\Organization', 'org_head_userID', 'user_id');
@@ -53,7 +59,13 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function attendee(){
 
-        return $this->hasOne('App\Attendee', 'userID', 'user_id');
+        return $this->hasMany('App\Attendee', 'userID', 'user_id');
+
+    }
+
+    public function transaction(){
+
+        return $this->hasMany('App\Transaction', 'trans_userID', 'user_id');
 
     }
 }

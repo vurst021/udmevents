@@ -1,9 +1,16 @@
 @extends('main')@section('content')
     
-
+                @if(session()->has('success_message'))
+                    <div class="alert alert-success">
+                        <h2>{{ session()->get('success_message')}}</h2>
+                    </div>
+                @elseif(session()->has('danger_message'))
+                    <div class="alert alert-danger">
+                        <h3>`{{ session()->get('danger_message')}}</h3>
+                    </div>
+                @endif
     <!-- ##### Single Product Details Area Start ##### -->
     <section class="single_product_details_area d-flex align-items-center">
-
         <!-- Single Product Thumb -->
         <div class="single_product_thumb clearfix">
             <div class="product_thumbnail_slides owl-carousel">
@@ -20,16 +27,13 @@
             Cecilio Munoz Palma Hall</p>
                 <h2>{{$event->event_name}}</h2>
             
-            <p ><img src="{{URL::asset('img/org-img/jpcs.png')}}" class="rounded-circle" style="width: 100px;"> Hosted by: Junior Philipine Computer Society </p>
+            <p > Hosted by: Junior Philipine Computer Society </p>
             <p class="product-desc"><h4>Details:</h4>  
                 {{$event->event_description}}
 
 
                 <hr>
             <div class="container">
-                <!-- Form -->
-                <p><strong class="mr-4">Are you going?</strong>Respond until February 16, 2018</p>
-                <form class="cart-form clearfix" method="post">
                     
                     
                     <!-- Cart & Favourite Box -->
@@ -41,20 +45,42 @@
                         if($check == ''){       
 
                         ?>
-
+                        <p><strong class="mr-4">Do You Want to Join ?</strong></p><div></div>
                         <a href="{{ route('event.join')}}/{{ $event->event_id }}" class="btn essence-btn">Going</a>
                         
 
                         <?php }else {?>
+                        @if($attendeeStatus->att_statusID == 1)\
+                            <button  class="btn disabled " toggle="disabled">You're already accepted.
+                            </button>
+                        @else
+                            <button  class="btn disabled " toggle="disabled">Request Already Sent</button>
+                            <!-- Favourite -->
+                        @endif
 
-                        <a  class="btn disabled " toggle="disabled">Request Already Sent</a>
+                        @if($event->event_fee > 0)
+                        <div>
+                            @if(!$attendee)
+                        <p><i>This is a paid event you may pay in advance.</i></p>
+                            
+                            <form method="POST" name="paypal" action="{{route('payment.paypal')}}">
+                                {{csrf_field()}}
+                                <input type="hidden" name="eventID" value="{{$event->event_id}}">
+                                <button type="submit"  class="btn essence-btn-secondary ml-4" >Pay now Via PayPal</button>
+                            </form>
+                            @else
+                            <button  class="btn disabled " toggle="disabled">
+                                You're Already Paid. 
+                            </button>
+                            @endif
+                        </div>
+
+                        @endif
 
                         <?php }?>
                              
-                        <!-- Favourite -->
-                        <a type="submit"  class="btn essence-btn-secondary ml-4" >No</a>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </section>

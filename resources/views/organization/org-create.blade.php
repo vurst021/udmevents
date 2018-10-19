@@ -1,11 +1,24 @@
-@extends('main')@section('content')
+@extends('main')
+@section('content')
 <div class="container section-padding-80">
     <div class="row justify-content-center">
         <div class="col-md-12 ">
             <div class="card">
-              <div class="card-header"> Create Organization </div>
+              <div class="card-header"> Request an event</div>
+                @if(session()->has('success_message'))
+                    <div class="alert alert-success">
+                        <h2>{{ session()->get('success_message')}}</h2>
+                    </div>
+                @elseif(session()->has('danger_message'))
+                    <div class="alert alert-danger">
+                        <h3>`{{ session()->get('danger_message')}}</h3>
+                    </div>
+                @endif
+
+                
+            
               <div class="card-body">
-                <form action="" method="post" id="locationForm">
+                <form action="{{route('event.store')}}" method="post" id="locationForm">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-sm-6">
@@ -15,21 +28,14 @@
                                     {{csrf_field()}}
                                     <div class="form-group">
                                         <label for="title">Organization Name</label>
-                                        <input type="text" name="org_name" id="org_name" class="form-control" placeholder="Enter Organization's Name">
-                                        <span class="error">{{$errors->first('org_name')}}</span>
+                                        <input type="text" name="title" id="title" class="form-control" placeholder="Enter Organization Name">
+                                        <span class="error">{{$errors->first('title')}}</span>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="title">Organization Abbreviation </label>
-                                        <input type="text" name="org_slug" id="org-slug" class="form-control"
-                                               placeholder="Enter the event start date">
-                                        <span class="error">{{$errors->first('org_slug')}}</span>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="description">Organization Description</label>
+                                        <label for="description">Description</label>
                                         <textarea
-                                                id="org_description"
+                                                id="description"
                                                 name="org_description" class="form-control"
                                                 placeholder="Enter the description"></textarea>
                                         <span class="error">{{$errors->first('org_description')}}</span>
@@ -38,22 +44,56 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
+
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                 </div>
                                 <div class="panel-body">
+
                                     <div class="form-group">
-                                        <label for="title">College</label>
-                                        <select name="org_colID[]" id="org_colID" class="form-control" placeholder="College">
-                                            <option>Choose College</option>
-                                            @foreach ($colleges as $college)
-                                            <option value="{{ $college->col_id }}">{{ $college->col_name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <span class="error">{{$errors->first('org_colID')}}</span>
+                                        <label for="title">Organization Abbreviation</label>
+                                        <input type="text" name="org_slugs" id="org_slugs" class="form-control"
+                                               placeholder="e.g OSA, CAE, CAS">
+                                        <span class="error">{{$errors->first('org_slugs')}}</span>
                                     </div>
 
-                                    
+                                    <div class="form-group">
+                                        <label for="title">Organization Head</label>
+                                        <select name="type" id="eventType" class="form-control" placeholder="Enter the event">
+                                            
+                                            @foreach($eventTypes as $evtType)
+                                            <option value="{{ $evtType->event_type_id }}">{{ $evtType->event_type_name }}</option>
+                                            @endforeach
+                                            
+                                        </select>
+                                        <span class="error">{{$errors->first('eventType')}}</span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="title">Organization</label>
+                                        <select name="organization" id="organizer" class="form-control" placeholder="Event Organizer">
+                                            
+                                            @foreach($organizations as $org)
+                                            <option value="{{ $org->org_id }}">{{ $org->org_name }}</option>
+                                            @endforeach
+
+
+                                        </select>    
+                                        <span class="error">{{$errors->first('organizer')}}</span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="title">Event place</label>
+                                        <select name="place" id="title" class="form-control" placeholder="Enter the event">
+                                            
+                                            @foreach ($venues as $venue)
+                                            <option value="{{ $venue->venue_id }}" >{{ $venue->venue_name }}</option>
+                                            @endforeach
+                                            
+
+                                        </select>
+                                        <span class="error">{{$errors->first('title')}}</span>
+                                    </div>
 
                                     <div class="col-md-4 offset-md-8">
                                         <button type="submit" class="btn btn-primary">
@@ -67,6 +107,9 @@
                     </div>
                 </form>
               </div>
+              
+
+
             </div>
         </div>
     </div>

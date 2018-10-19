@@ -33,6 +33,6 @@ class Admin extends Model
     }
 
     public function eventStatus(){
-        return $this->hasOne('App\EventStatus','admin_ID','admin_id' );
+        return $this->hasMany('App\EventStatus','admin_ID','admin_id' );
     }
 }
